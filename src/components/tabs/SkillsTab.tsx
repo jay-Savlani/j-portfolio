@@ -1,18 +1,16 @@
-import { Carousel } from "../utilityComponents/Carousel";
+import { Carousel } from "./skillsTab/Carousel";
 import { skillData } from "./skillsTab/skillData";
-import { HorizontalDivider } from "../utilityComponents/HorizontalDivider";
 import { useState } from "react";
 import { List } from "../utilityComponents/List";
 import { SkillDetail } from "./skillsTab/SkillDetail";
+import "./home/home.css";
 
 export const SkillsTab = () => {
   const [activeSkill, setActiveSkill] = useState("ReactJs");
 
-  console.log("active skill", activeSkill);
-
   return (
     <div className="h-full flex flex-col ">
-      <div className="mt-10 flex flex-row justify-center p-4">
+      <div className="flex flex-row justify-center p-4">
         <Carousel
           data={skillData}
           onSelect={setActiveSkill}
@@ -20,14 +18,10 @@ export const SkillsTab = () => {
           key={activeSkill}
         />
       </div>
-      {/* <p className="text-xs text-center mt-8">
-        Click icons to view more details
-      </p>
-      <HorizontalDivider borderColor="border-slate-400 mb-3" /> */}
       <div className="flex flex-row justify-strech gap-5">
         <div className="basis-1/2 max-h-[350px] shadow-lg p-3 rounded">
           <List
-            classes="max-h-[350px]"
+            classes="max-h-[350px] flex flex-col flex-wrap"
             items={skillData}
             ListItem={({ item }) => {
               let titleClasses =
@@ -53,11 +47,10 @@ export const SkillsTab = () => {
           />
         </div>
 
-        {/* <div className="border-e border-slate-800" /> */}
-
-        <div className="basis-1/2 shadow-lg rounded p-3">
+        <div className="basis-1/2 shadow-lg rounded p-3 ">
           <SkillDetail
             skillData={skillData.find((skill) => skill.title === activeSkill)}
+            key={activeSkill}
           />
         </div>
       </div>

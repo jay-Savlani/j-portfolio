@@ -5,11 +5,7 @@ type T_RightPanelProps = {
 };
 
 const RightPanel = ({ children }: T_RightPanelProps) => {
-  return (
-    <div className="px-7 flex flex-col h-full overflow-hidden bg-gray">
-      {children}
-    </div>
-  );
+  return <div className="h-full">{children}</div>;
 };
 
 export default RightPanel;

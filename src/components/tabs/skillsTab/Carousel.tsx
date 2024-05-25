@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, ReactNode, useState } from "react";
 
-import { T_SKillData } from "../tabs/skillsTab/skillData";
+import { T_SKillData } from "./skillData";
 
 type T_CarouselProps = {
   data: T_SKillData[];
@@ -21,7 +21,7 @@ type T_SlideButton = {
 const SlideButton = ({ children, ...rest }: T_SlideButton) => {
   return (
     <button
-      className="mx-10 bg-slate-700 text-slate-50 cursor-pointer"
+      className="mx-10 p-3 bg-slate-700 text-slate-50 cursor-pointer hover:opacity-70 rounded"
       {...rest}
     >
       {children}
@@ -43,10 +43,10 @@ const ImageWithTitle = ({
     titleClasses += "bg-slate-700 text-white shadow-inner";
 
   return (
-    <div>
+    <div className="animation-fade-in-quick">
       <img
         src={image.src}
-        className="block h-52 w-52 hover:opacity-50 cursor-pointer"
+        className="block h-40 w-40 hover:opacity-50 cursor-pointer"
         onClick={() => clickHandler(image.title)}
       />
       <p className={titleClasses}>{image.title}</p>
@@ -70,12 +70,10 @@ export const Carousel = ({ data, onSelect, selectedItem }: T_CarouselProps) => {
   });
 
   const handleNext = () => {
-    console.log("handle next called");
     setActiveIndex((prevIndex) => prevIndex + 1);
   };
 
   const handlePrevious = () => {
-    console.log("handle prev called");
     setActiveIndex((prevIndex) => prevIndex - 1);
   };
 

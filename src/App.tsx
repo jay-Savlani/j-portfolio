@@ -1,7 +1,5 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-// import './App.css'
+import "./App.css";
 import "./main.css";
 import LeftPlanel from "./components/LeftPanel";
 import RightPanel from "./components/RightPanel";
@@ -12,27 +10,22 @@ export type TABS =
   | "skills"
   | "professional experience"
   | "achievements"
-  | "projects"
-  | "hobbies";
+  | "projects";
 
 function App() {
-  let [selectedTab, setSelectedTab] = useState<TABS>("skills");
+  let [selectedTab, setSelectedTab] = useState<TABS>("home");
 
   console.log("selected tab", selectedTab);
 
   return (
-    <div className="containers mx-auto h-full bg-white">
-      <div className="flex flex-row h-full">
-        <div className="basis-1/4 bg-gradient-to-br from-stone-900 to-stone-700">
-          <LeftPlanel setActiveTab={setSelectedTab} activeTab={selectedTab} />
-        </div>
-        <div className="basis-3/4">
-          <RightPanel>
-            <Tab tab={selectedTab} />
-          </RightPanel>
-        </div>
+    <>
+      <LeftPlanel setActiveTab={setSelectedTab} activeTab={selectedTab} />
+      <div className="px-12 h-full pt-24">
+        <RightPanel>
+          <Tab tab={selectedTab} />
+        </RightPanel>
       </div>
-    </div>
+    </>
   );
 }
 

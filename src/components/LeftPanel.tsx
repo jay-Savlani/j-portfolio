@@ -1,16 +1,16 @@
 import { Dispatch, SetStateAction } from "react";
-import { HorizontalDivider } from "./utilityComponents/HorizontalDivider";
 import { List } from "./utilityComponents/List";
 import PROFILE_IMG from "../assets/profile.jpg";
 import { TABS } from "../App";
+import { Button } from "./utilityComponents/Button";
+import { PlainLink } from "./utilityComponents/PlainLink";
 
 const listItems: TABS[] = [
   "home",
   "skills",
   "professional experience",
-  "achievements",
   "projects",
-  "hobbies",
+  "achievements",
 ];
 
 type T_LeftPanelProps = {
@@ -20,23 +20,75 @@ type T_LeftPanelProps = {
 
 const LeftPlanel = ({ activeTab, setActiveTab }: T_LeftPanelProps) => {
   return (
-    <div className="h-full p-5 border-r-2 border-gray-50">
-      <div className="flex flex-row justify-center">
-        <div className="rounded-full truncate shadow shadow-sm shadow-white">
-          <img className=" h-52 w-52 hover:opacity-70" src={PROFILE_IMG} />
+    <nav className="fixed top-0 left-0 py-6 px-12 w-full bg-white ">
+      <div className="flex flex-row items-center justify-between">
+        <div className="flex flex-row items-center">
+          <List
+            items={listItems}
+            classes="flex flex-row gap-8 items-stretch"
+            onSelect={setActiveTab}
+            selectedItem={activeTab}
+            ListItem={({ item, selectedItem, onSelect }) => {
+              const clickHandler = (item: TABS) => {
+                console.log("click handler called", item);
+                if (onSelect) {
+                  onSelect(item);
+                }
+              };
+
+              if (item === "home") {
+                return (
+                  <li key={item} onClick={() => clickHandler(item)}>
+                    <img
+                      src={PROFILE_IMG}
+                      className="h-12 w-14 rounded-full me-6 cursor-pointer me-[-8px]"
+                    />
+                  </li>
+                );
+              }
+
+              let classes =
+                "font-semibold hover:opacity-70 cursor-pointer capitalize flex flex-col justify-center transition-all duration-300 ";
+
+              if (selectedItem === item) {
+                console.log("inside");
+                classes += "border-b border-slate-900";
+              }
+
+              return (
+                <li
+                  className={classes}
+                  key={item}
+                  onClick={() => clickHandler(item)}
+                >
+                  {item}
+                </li>
+              );
+            }}
+          />
+        </div>
+        <div className="flex flex-row gap-5">
+          <Button classes="bg-slate-900 text-white py-2.5 px-2.5 rounded hover:opacity-75 transition-all duration-300">
+            <PlainLink
+              classes="text-inherit"
+              href="https://github.com/jay-Savlani/"
+              target="_blank"
+            >
+              Github
+            </PlainLink>
+          </Button>
+          <Button classes="py-2.5 px-2.5 rounded border border-slate-900 hover:bg-slate-900 text-slate-900 hover:text-white transition-all duration-300">
+            <PlainLink
+              classes="text-inherit"
+              href="https://www.linkedin.com/in/jay-savlani/"
+              target="_blank"
+            >
+              LinkedIn
+            </PlainLink>
+          </Button>
         </div>
       </div>
-      <h1 className="text-slate-100 text-3xl  tracking-[8px] my-3.5 text-center">
-        <span className="shadow-sm font-medium">JAY SAVLANI</span>
-      </h1>
-      <HorizontalDivider />
-      <List
-        items={listItems}
-        classes="my-7"
-        onSelect={setActiveTab}
-        selectedItem={activeTab}
-      />
-    </div>
+    </nav>
   );
 };
 

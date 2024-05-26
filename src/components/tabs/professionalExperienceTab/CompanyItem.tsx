@@ -11,8 +11,8 @@ export const CompanyItem = ({ item }: T_CompanyItemProps) => {
       <div className="p-4 lg:p-8 flex flex-col lg:grid lg:grid-cols-5 lg:grid-row-2 lg:grid-flow-row gap-10 ">
         <div className="col-span-5">
           <div className="flex flex-col text-center  gap-3">
-            <p className="text-[30px]">{item.title}</p>
-            <p className=" text-3xl lg:text-[40px] tracking-widest font-bold bg-gradient-to-r from-sky-500 to-indigo-500 text-transparent bg-clip-text">
+            <p className="text-3xl">{item.title}</p>
+            <p className="py-2 text-3xl lg:text-4xl tracking-widest font-bold bg-gradient-to-r from-sky-500 to-indigo-500 text-transparent bg-clip-text">
               {item.designation}
             </p>
             <p className="text-base">{item.address}</p>

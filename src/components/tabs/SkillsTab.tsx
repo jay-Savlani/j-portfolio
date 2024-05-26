@@ -1,18 +1,16 @@
-import { Carousel } from "../utilityComponents/Carousel";
+import { Carousel } from "./skillsTab/Carousel";
 import { skillData } from "./skillsTab/skillData";
-import { HorizontalDivider } from "../utilityComponents/HorizontalDivider";
 import { useState } from "react";
 import { List } from "../utilityComponents/List";
 import { SkillDetail } from "./skillsTab/SkillDetail";
+import "../common.css";
 
 export const SkillsTab = () => {
   const [activeSkill, setActiveSkill] = useState("ReactJs");
 
-  console.log("active skill", activeSkill);
-
   return (
-    <div className="h-full flex flex-col ">
-      <div className="mt-10 flex flex-row justify-center p-4">
+    <div className="h-full flex flex-col items-center gap-3 lg:gap-0">
+      <div className="p-4">
         <Carousel
           data={skillData}
           onSelect={setActiveSkill}
@@ -20,22 +18,17 @@ export const SkillsTab = () => {
           key={activeSkill}
         />
       </div>
-      {/* <p className="text-xs text-center mt-8">
-        Click icons to view more details
-      </p>
-      <HorizontalDivider borderColor="border-slate-400 mb-3" /> */}
-      <div className="flex flex-row justify-strech gap-5">
-        <div className="basis-1/2 max-h-[350px] shadow-lg p-3 rounded">
+      <div className="flex flex-col lg:flex-row lg:justify-strech gap-5 p-3">
+        <div className="basis-1/2 lg:shadow-lg lg:max-h-[350px] p-3 rounded">
           <List
-            classes="max-h-[350px]"
+            classes="h-full lg:p-0 grid grid-rows-1 grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-col lg:flex-wrap gap-3 lg:gap-0"
             items={skillData}
             ListItem={({ item }) => {
               let titleClasses =
                 "text-base p-2 hover:bg-slate-700 hover:text-white cursor-pointer ";
 
               if (item.title === activeSkill) {
-                titleClasses +=
-                  "bg-slate-700 text-white shadow-inner shadow-inner";
+                titleClasses += "bg-slate-700 text-white shadow-inner";
               }
 
               return (
@@ -53,11 +46,10 @@ export const SkillsTab = () => {
           />
         </div>
 
-        {/* <div className="border-e border-slate-800" /> */}
-
-        <div className="basis-1/2 shadow-lg rounded p-3">
+        <div className="basis-1/2 lg:shadow-lg rounded">
           <SkillDetail
             skillData={skillData.find((skill) => skill.title === activeSkill)}
+            key={activeSkill}
           />
         </div>
       </div>

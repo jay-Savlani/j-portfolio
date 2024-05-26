@@ -13,6 +13,10 @@ import CSS_LOGO from "../../../assets/css-3.png";
 import SASS_LOGO from "../../../assets/sass-1.svg";
 import REDUX_LOGO from "../../../assets/redux.svg";
 import REST_API_LOGO from "../../../assets/rest-api-icon.svg";
+import BOOTSTRAP_LOGO from "../../../assets/bootstrap-logo.svg";
+import TAILWIND_LOGO from "../../../assets/Tailwind_CSS_Logo.svg.png";
+import PYTHON_LOGO from "../../../assets/python_logo.png";
+import BASH_LOGO from "../../../assets/bash_logo.jpg";
 
 export type T_SKillData = {
   title: string;
@@ -110,5 +114,29 @@ export const skillData: T_SKillData[] = [
     src: REST_API_LOGO,
     summary:
       "REST (Representational State Transfer) is an architectural style used for designing networked applications, particularly web services. It relies on a set of principles for creating scalable, stateless, and interoperable APIs. RESTful APIs use standard HTTP methods (GET, POST, PUT, DELETE, etc.) to perform CRUD (Create, Read, Update, Delete) operations on resources identified by URLs. REST emphasizes a uniform interface, resource-based interactions, stateless communication, and layered system architecture. It is widely adopted for building web APIs that can be easily understood, maintained, and integrated with various clients and platforms.",
+  },
+  {
+    title: "Tailwind",
+    src: TAILWIND_LOGO,
+    summary:
+      "Tailwind CSS is a utility-first CSS framework that provides low-level utility classes for styling, enabling developers to build custom designs without writing traditional CSS. It promotes a responsive design approach by offering a variety of pre-configured classes for common tasks such as layout, spacing, typography, and colors. Tailwind CSS is highly configurable, allowing for easy customization through a central configuration file. This framework enhances productivity by minimizing the need for writing custom CSS and facilitating a consistent design system across a project.",
+  },
+  {
+    title: "Bootstrap",
+    src: BOOTSTRAP_LOGO,
+    summary:
+      "Bootstrap is a popular front-end framework for developing responsive and mobile-first web projects. It offers a comprehensive set of pre-designed components, such as grids, buttons, forms, and navigation elements, along with powerful JavaScript plugins. Bootstrap's extensive customization options and consistent design patterns help developers quickly create visually appealing and functional web interfaces. Its wide adoption and robust documentation make it a go-to choice for both beginners and experienced developers.",
+  },
+  {
+    title: "BASH Scripting",
+    src: BASH_LOGO,
+    summary:
+      "Bash scripting involves writing sequences of commands for the Bourne Again Shell (bash) to automate tasks in Unix-like operating systems. It utilizes shell scripting syntax to execute commands, perform file operations, and control program flow. Bash scripts are commonly used for system administration, task automation, and building complex workflows in Linux and macOS environments.",
+  },
+  {
+    title: "Python Scripting",
+    src: PYTHON_LOGO,
+    summary:
+      "Python scripting involves writing Python code to automate tasks, perform data manipulation, and build applications. Python's simplicity, readability, and extensive standard library make it a popular choice for scripting, allowing users to easily write scripts for various purposes such as system administration, web scraping, data analysis, and more. Python scripting is widely used across different domains, from software development to scientific computing and beyond.",
   },
 ];

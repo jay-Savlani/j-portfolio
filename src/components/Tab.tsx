@@ -10,6 +10,8 @@ type T_TabProps = {
 };
 
 export const Tab = ({ tab }: T_TabProps) => {
+  window.scrollTo(0, 0);
+
   switch (tab) {
     case "home":
       return <HomeTab />;

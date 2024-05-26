@@ -15,13 +15,13 @@ export const HomeTab = () => {
       <div className="h-auto sm:h-[70vh] py-8 sm:py-0 home-bg md:rounded-lg">
         <div className="flex flex-col justify-center h-full w-full md:w-3/4  lg:w-1/2 p-4">
           <div className="px-0 sm:px-8 text-center md:text-left">
-            <h1 className="animation-move-in-left font-bold text-2xl md:text-4xl lg:text-6xl text-transparent tracking-widest mb-4 bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text">
+            <h1 className="animation-move-in-left font-bold text-2xl md:text-4xl lg:text-6xl text-white md:text-transparent tracking-widest mb-4 md:bg-gradient-to-r md:from-indigo-600 md:to-indigo-950 md:bg-clip-text">
               JAY SAVLANI
             </h1>
-            <h2 className="animation-fade-in font-semibold text-lg lg:text-[22px] tracking-wider mb-6  text-transparent bg-gradient-to-r from-red-950 to-red-600 bg-clip-text">
+            <h2 className="animation-fade-in font-semibold text-lg lg:text-[22px] tracking-wider mb-6  text-slate-300 md:text-transparent md:bg-gradient-to-r md:from-red-950 md:to-red-600 md:bg-clip-text">
               SOFTWARE DEVELOPER
             </h2>
-            <p className="text-base sm:text-black lg:text-slate-800 tracking-wider animation-fade-in">
+            <p className="text-base text-slate-400 md:text-slate-800 tracking-wider animation-fade-in">
               Passionate and detail-oriented Front-End Developer with 2+ years
               of experience in building user friendly customer facing and
               internal business applications. Proficient in HTML, CSS,
@@ -38,7 +38,7 @@ export const HomeTab = () => {
         <p className="text-[70px] lg:text-[200px] text-transparent bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text animation-spin-slow">
           &lt;/&gt;
         </p>
-        <code className="overflow-x-auto">
+        <code className="overflow-x-auto py-4 sm:py-0">
           <pre className="text-sm sm:text-base lg:text-2xl text-transparent bg-gradient-to-r from-red-950 to-red-600 bg-clip-text">
             {init_life}
           </pre>

@@ -52,7 +52,7 @@ const NavResponsive = ({ activeTab, setActiveTab }: T_NavigationProps) => {
   } top-0 left-0 w-[100vw] h-[100vh] p-6 bg-gradient-to-r from-indigo-600 to-indigo-950 transition-all duration-200`;
 
   return (
-    <nav className="fixed top-0 left-0 p-6 w-full bg-white z-50">
+    <nav className="fixed top-0 left-0 px-6 py-2 w-full bg-white z-50">
       <div className={overlayClasses}>
         <List
           items={listItems}

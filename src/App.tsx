@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Navigation setActiveTab={setSelectedTab} activeTab={selectedTab} />
-      <div className=" sm:px-6 md:px-8 lg:px-12 h-full pt-16 dm:pt-24">
+      <div className=" sm:px-6 md:px-8 lg:px-12 h-full pt-16 md:pt-20">
         <TabContainer>
           <Tab tab={selectedTab} />
         </TabContainer>

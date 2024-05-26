@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { projectsData } from "./projectsTab/projectsData";
 import { List } from "../utilityComponents/List";
 import { ProjectImageCarousel } from "./projectsTab/ProjectImageCarousel";
-import "./home/home.css";
+import "../common.css";
 import { PlainLink } from "../utilityComponents/PlainLink";
 import GITHUB_LOGO from "../../assets/github-mark.png";
 

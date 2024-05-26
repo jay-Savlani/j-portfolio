@@ -1,4 +1,3 @@
-import { HorizontalDivider } from "../../utilityComponents/HorizontalDivider";
 import { T_ProfessionalExperienceData } from "./data";
 
 type T_CompanyItemProps = {
@@ -8,38 +7,6 @@ type T_CompanyItemProps = {
 
 export const CompanyItem = ({ item }: T_CompanyItemProps) => {
   return (
-    // <div className="pe-[300px]">
-    //   <div className="flex flex-row justify-between items-center">
-    //     <img className="h-[250px] w-[400px]" src={item.src} />
-    //     <div className="flex flex-col gap-1.5">
-    //       <p className="text-[30px]">{item.title}</p>
-    //       <p className=" text-[40px] tracking-widest font-bold">
-    //         {item.designation}
-    //       </p>
-    //       <p className="text-base">{item.address}</p>
-    //       <p className="text-base">{item.workDurationRange}</p>
-    //     </div>
-    //   </div>
-
-    //   <div className="flex flex-row">
-    //     <ul className="flex flex-col max-h-[300px] flex-wrap gap-3">
-    //       {item.skills.map((skill) => (
-    //         <li
-    //           key={skill}
-    //           className="font-semibold rounded bg-slate-700 text-white px-2 py-1"
-    //         >
-    //           {skill}
-    //         </li>
-    //       ))}
-    //     </ul>
-    //     <ul className="list-disc">
-    //       {item.points.map((point, index) => (
-    //         <li key={index}>{point}</li>
-    //       ))}
-    //     </ul>
-    //   </div>
-    // </div>
-
     <div className="animation-fade-in">
       <div className="p-4 lg:p-8 flex flex-col lg:grid lg:grid-cols-5 lg:grid-row-2 lg:grid-flow-row gap-10 ">
         <div className="col-span-2">

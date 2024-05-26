@@ -3,7 +3,7 @@ import { skillData } from "./skillsTab/skillData";
 import { useState } from "react";
 import { List } from "../utilityComponents/List";
 import { SkillDetail } from "./skillsTab/SkillDetail";
-import "./home/home.css";
+import "../common.css";
 
 export const SkillsTab = () => {
   const [activeSkill, setActiveSkill] = useState("ReactJs");

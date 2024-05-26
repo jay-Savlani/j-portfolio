@@ -21,7 +21,9 @@ type T_SlideButton = {
 const SlideButton = ({ children, ...rest }: T_SlideButton) => {
   return (
     <button
-      className="mx-5 md:mx-10 p-3 bg-slate-700 text-slate-50 cursor-pointer hover:opacity-70 rounded"
+      className={`mx-5 md:mx-10 p-3 bg-slate-700 text-slate-50 ${
+        rest.disabled ? "text-slate-400" : "text-slate-50"
+      } cursor-pointer hover:opacity-70 rounded`}
       {...rest}
     >
       {children}

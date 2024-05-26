@@ -63,7 +63,9 @@ export const ProjectImageCarousel = ({ data }: T_CarouselProps) => {
           &lt;
         </SlideButton>
 
-        {data[index] && <ImageWithTitle image={data[index]} key={index} />}
+        {data[index] && (index + 1 < data.length ? data[index + 1] : true) && (
+          <ImageWithTitle image={data[index]} key={index} />
+        )}
 
         <SlideButton onClick={handleNext} disabled={disableNextButton}>
           &gt;

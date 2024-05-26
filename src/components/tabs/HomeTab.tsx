@@ -35,14 +35,16 @@ export const HomeTab = () => {
         </div>
       </div>
       <div className="px-3 sm:px-0 py-6 sm:py-8 lg:py-24 flex  lg:flex-row sm:flex-col gap-8 sm:gap-14 flex-wrap items-center justify-center ">
-        <p className="text-[70px] lg:text-[200px] text-transparent bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text animation-spin-slow">
+        <p className="text-[100px] lg:text-[200px] text-transparent bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text animation-spin-slow">
           &lt;/&gt;
         </p>
-        <code className="overflow-x-auto py-4 sm:py-0">
-          <pre className="text-sm sm:text-base lg:text-2xl text-transparent bg-gradient-to-r from-red-950 to-red-600 bg-clip-text">
-            {init_life}
-          </pre>
-        </code>
+        <div className="overflow-hidden">
+          <code>
+            <pre className="overflow-x-auto py-4 sm:py-0 text-sm sm:text-base lg:text-2xl text-transparent bg-gradient-to-r from-red-950 to-red-600 bg-clip-text">
+              {init_life}
+            </pre>
+          </code>
+        </div>
       </div>
     </div>
   );

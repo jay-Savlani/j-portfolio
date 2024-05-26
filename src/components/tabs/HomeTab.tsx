@@ -12,7 +12,7 @@ init_life("programming");
 export const HomeTab = () => {
   return (
     <div className="pt-8">
-      <div className="h-auto sm:h-[70vh] py-8 sm:py-0 home-bg md:rounded-lg">
+      <div className="h-auto sm:h-[80vh] py-8 sm:py-0 home-bg md:rounded-lg">
         <div className="flex flex-col justify-center h-full w-full md:w-3/4  lg:w-1/2 p-4">
           <div className="px-0 sm:px-8 text-center md:text-left">
             <h1 className="animation-move-in-left font-bold text-2xl md:text-4xl lg:text-6xl text-white md:text-transparent tracking-widest mb-4 md:bg-gradient-to-r md:from-indigo-600 md:to-indigo-950 md:bg-clip-text">
@@ -34,17 +34,15 @@ export const HomeTab = () => {
           </div>
         </div>
       </div>
-      <div className="px-3 sm:px-0 py-6 sm:py-8 lg:py-24 flex  lg:flex-row sm:flex-col gap-8 sm:gap-14 flex-wrap items-center justify-center ">
+      <div className="px-3 mb-8 sm:mb-0 sm:px-0 py-4 sm:py-8 lg:py-20 flex  lg:flex-row sm:flex-col gap-6 sm:gap-14 flex-wrap items-center justify-center ">
         <p className="text-[100px] lg:text-[200px] text-transparent bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text animation-spin-slow">
           &lt;/&gt;
         </p>
-        <div className="overflow-hidden">
-          <code>
-            <pre className="overflow-x-auto py-4 sm:py-0 text-sm sm:text-base lg:text-2xl text-transparent bg-gradient-to-r from-red-950 to-red-600 bg-clip-text">
-              {init_life}
-            </pre>
-          </code>
-        </div>
+        <code className="overflow-x-auto">
+          <pre className="w-max py-3 text-sm sm:text-base lg:text-2xl text-transparent bg-gradient-to-r from-red-950 to-red-600 bg-clip-text">
+            {init_life}
+          </pre>
+        </code>
       </div>
     </div>
   );

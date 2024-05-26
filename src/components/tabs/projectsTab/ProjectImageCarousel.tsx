@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode, useState } from "react";
+import { ButtonHTMLAttributes, ReactNode, useEffect, useState } from "react";
 
 import { T_image } from "./projectsData";
 
@@ -40,6 +40,15 @@ const ImageWithTitle = ({ image }: T_ImageWithTitleProps) => {
 
 export const ProjectImageCarousel = ({ data }: T_CarouselProps) => {
   const [index, setActiveIndex] = useState(0);
+  const [images, setImages] = useState<T_image[]>([]);
+
+  // load images
+  useEffect(() => {
+    let imagesData: T_image[] = [];
+    data.forEach((img) => imagesData.push(img));
+
+    setImages(imagesData);
+  }, [data]);
 
   const handleNext = () => {
     setActiveIndex((prevIndex) => prevIndex + 1);
@@ -63,9 +72,7 @@ export const ProjectImageCarousel = ({ data }: T_CarouselProps) => {
           &lt;
         </SlideButton>
 
-        {data[index] && (index + 1 < data.length ? data[index + 1] : true) && (
-          <ImageWithTitle image={data[index]} key={index} />
-        )}
+        {images[index] && <ImageWithTitle image={images[index]} key={index} />}
 
         <SlideButton onClick={handleNext} disabled={disableNextButton}>
           &gt;

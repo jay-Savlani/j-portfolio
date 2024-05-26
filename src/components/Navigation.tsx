@@ -16,7 +16,7 @@ const listItems: TABS[] = [
   "achievements",
 ];
 
-type T_LeftPanelProps = {
+type T_NavigationProps = {
   setActiveTab: Dispatch<SetStateAction<TABS>>;
   activeTab: TABS;
 };
@@ -40,7 +40,7 @@ const BurgerMenuCloseIcon = () => {
   );
 };
 
-const NavResponsive = ({ activeTab, setActiveTab }: T_LeftPanelProps) => {
+const NavResponsive = ({ activeTab, setActiveTab }: T_NavigationProps) => {
   const [burgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
 
   const handleToggle = () => {
@@ -139,7 +139,7 @@ const NavResponsive = ({ activeTab, setActiveTab }: T_LeftPanelProps) => {
   );
 };
 
-const LeftPlanel = ({ activeTab, setActiveTab }: T_LeftPanelProps) => {
+const Navigation = ({ activeTab, setActiveTab }: T_NavigationProps) => {
   const { windowSize, tailwindBreakpoints } = useMediaQueryContext();
 
   if (windowSize <= tailwindBreakpoints["md"]) {
@@ -177,7 +177,6 @@ const LeftPlanel = ({ activeTab, setActiveTab }: T_LeftPanelProps) => {
                 "text-sm lg:text-base font-semibold hover:opacity-70 cursor-pointer capitalize flex flex-col justify-center transition-all duration-300 ";
 
               if (selectedItem === item) {
-                console.log("inside");
                 classes += "border-b border-slate-900";
               }
 
@@ -218,4 +217,4 @@ const LeftPlanel = ({ activeTab, setActiveTab }: T_LeftPanelProps) => {
   );
 };
 
-export default LeftPlanel;
+export default Navigation;

@@ -1524,6 +1524,10 @@ video {
     height: 10rem;
   }
 
+  .md\:max-h-\[200px\] {
+    max-height: 200px;
+  }
+
   .md\:w-3\/4 {
     width: 75%;
   }

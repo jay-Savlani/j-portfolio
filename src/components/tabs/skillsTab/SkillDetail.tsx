@@ -11,7 +11,7 @@ export const SkillDetail = ({ skillData }: T_SkillDetailProps) => {
         <img className="h-16 w-16" src={skillData?.src} />
         <h3 className="font-semibold">{skillData?.title}</h3>
       </div>
-      <p className="text-md overflow-y-auto max-h-[200px] p-2">
+      <p className="text-md overflow-y-auto h-auto md:max-h-[200px] p-2">
         {skillData?.summary}
       </p>
     </div>

@@ -29,13 +29,13 @@ const Content = ({ children, title, titleClasses }: T_ContentProps) => {
 
 export const ProjectsTab = () => {
   return (
-    <div className="flex px-28 mt-4 flex-col overflow-y-scroll animation-fade-in-quick">
+    <div className="flex px-6 lg:px-28 mt-4 flex-col overflow-y-scroll animation-fade-in-quick">
       <List
         items={projectsData}
         ListItem={({ item }) => (
           <div>
-            <div className="flex flex-row items-center justify-between">
-              <h2 className="text-6xl text-transparent mb-4 bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text animation-fade-in">
+            <div className="flex flex-row items-center justify-between mb-4">
+              <h2 className="text-4xl lg:text-6xl text-transparent  bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text animation-fade-in">
                 {item.title?.projectName}
               </h2>
               <PlainLink
@@ -89,7 +89,7 @@ export const ProjectsTab = () => {
               {item.techStacks?.length && (
                 <List
                   items={item.techStacks}
-                  classes="my-8 flex flex-col gap-8 max-h-[300px] flex-wrap"
+                  classes="my-8 flex flex-col gap-8 lg:max-h-[300px] flex-wrap"
                   ListItem={({ item }) => (
                     <li key={item.techStack} className="flex flex-row gap-8">
                       <img src={item.imgSrg} className="h-10 w-10" />

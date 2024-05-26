@@ -41,12 +41,15 @@ export const CompanyItem = ({ item }: T_CompanyItemProps) => {
     // </div>
 
     <div className="animation-fade-in">
-      <div className="p-8 grid grid-cols-5 grid-row-2 grid-flow-row gap-10">
+      <div className="p-4 lg:p-8 flex flex-col lg:grid lg:grid-cols-5 lg:grid-row-2 lg:grid-flow-row gap-10 ">
         <div className="col-span-2">
-          <img className="h-[250px] w-[400px]" src={item.src} />
+          <img
+            className="h-20 mx-auto lg:h-[250px] lg:w-[400px]"
+            src={item.src}
+          />
         </div>
         <div className="col-span-3">
-          <div className="flex flex-col text-right gap-3">
+          <div className="flex flex-col text-center lg:text-right gap-3">
             <p className="text-[30px]">{item.title}</p>
             <p className=" text-[40px] tracking-widest font-bold bg-gradient-to-r from-sky-500 to-indigo-500 text-transparent bg-clip-text">
               {item.designation}
@@ -57,7 +60,7 @@ export const CompanyItem = ({ item }: T_CompanyItemProps) => {
         </div>
 
         <div className="col-span-2">
-          <ul className="flex flex-row max-h-[300px] text-[20px] flex-wrap gap-4">
+          <ul className="flex flex-row lg:max-h-[300px] text-[20px] flex-wrap gap-4 justify-center lg:justify-normal">
             {item.skills.map((skill) => (
               <li
                 key={skill}

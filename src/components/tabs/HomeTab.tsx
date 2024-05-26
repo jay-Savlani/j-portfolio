@@ -12,7 +12,7 @@ init_life("programming");
 export const HomeTab = () => {
   return (
     <div className="pt-8">
-      <div className="h-auto h-[70vh] home-bg rounded-lg">
+      <div className="h-auto sm:h-[70vh] home-bg rounded-lg">
         <div className="flex flex-col justify-center h-full sm:w-full md:w-3/4  lg:w-1/2 p-4">
           <div className="px-0 sm:px-8 text-center md:text-left">
             <h1 className="animation-move-in-left font-bold text-xl md:text-2xl lg:text-6xl text-transparent tracking-widest mb-4 bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text">

@@ -17,7 +17,7 @@ type T_SlideButton = {
 const SlideButton = ({ children, ...rest }: T_SlideButton) => {
   return (
     <button
-      className="mx-10 px-3 py-2 text-slate-700 cursor-pointer hover:opacity-70 text-4xl font-bold"
+      className="mx-2 lg:mx-10 px-1 lg:px-3 py-2 text-slate-700 cursor-pointer hover:opacity-70 text-4xl font-bold"
       {...rest}
     >
       {children}
@@ -26,13 +26,9 @@ const SlideButton = ({ children, ...rest }: T_SlideButton) => {
 };
 
 const ImageWithTitle = ({ image }: T_ImageWithTitleProps) => {
-  let titleClasses =
-    "text-lg text-center text-slate-800 mt-5 p-2 font-semibold";
-
   return (
     <div className="animation-fade-in-quick">
-      <p className={titleClasses}>{image.title}</p>
-      <img src={image.imgSrc} className="block h-[500px]" />
+      <img src={image.imgSrc} className="block w-[80vw]" />
     </div>
   );
 };
@@ -52,20 +48,22 @@ export const ProjectImageCarousel = ({ data }: T_CarouselProps) => {
   const disableNextButton = !data[index + 1];
 
   return (
-    <div className="flex flex-row items-center">
-      <SlideButton onClick={handlePrevious} disabled={disablePreviousButton}>
-        &lt;
-      </SlideButton>
+    <div>
+      <p className="text-base mb-2 lg:text-lg text-center text-slate-800 mt-5 p-1 lg:p-2 font-semibold">
+        {data[index].title}
+      </p>
 
-      {data[index] && (
-        <div className="flex flex-row gap-x-10">
-          <ImageWithTitle image={data[index]} key={index} />
-        </div>
-      )}
+      <div className="flex flex-row items-center">
+        <SlideButton onClick={handlePrevious} disabled={disablePreviousButton}>
+          &lt;
+        </SlideButton>
 
-      <SlideButton onClick={handleNext} disabled={disableNextButton}>
-        &gt;
-      </SlideButton>
+        {data[index] && <ImageWithTitle image={data[index]} key={index} />}
+
+        <SlideButton onClick={handleNext} disabled={disableNextButton}>
+          &gt;
+        </SlideButton>
+      </div>
     </div>
   );
 };

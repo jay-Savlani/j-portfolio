@@ -9,7 +9,7 @@ export const SkillsTab = () => {
   const [activeSkill, setActiveSkill] = useState("ReactJs");
 
   return (
-    <div className="h-full flex flex-col items-center gap-3 lg:gap-0">
+    <div className="h-full flex flex-col items-center gap-3 2xl:gap-10 lg:gap-0">
       <div className="p-4">
         <Carousel
           data={skillData}

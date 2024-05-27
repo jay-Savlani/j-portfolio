@@ -694,10 +694,6 @@ video {
   margin-top: 2rem;
 }
 
-.mb-3 {
-  margin-bottom: 0.75rem;
-}
-
 .block {
   display: block;
 }
@@ -943,10 +939,6 @@ video {
 
 .overflow-y-auto {
   overflow-y: auto;
-}
-
-.overflow-y-scroll {
-  overflow-y: scroll;
 }
 
 .text-wrap {
@@ -1232,10 +1224,6 @@ video {
 
 .text-\[24px\] {
   font-size: 24px;
-}
-
-.text-\[30px\] {
-  font-size: 30px;
 }
 
 .text-base {
@@ -1775,5 +1763,11 @@ video {
     --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:gap-10 {
+    gap: 2.5rem;
   }
 }

@@ -29,7 +29,7 @@ const Content = ({ children, title, titleClasses }: T_ContentProps) => {
 
 export const ProjectsTab = () => {
   return (
-    <div className="flex px-6 lg:px-28 mt-4 flex-col overflow-y-scroll animation-fade-in-quick">
+    <div className="flex px-6 lg:px-28 mt-4 flex-col animation-fade-in-quick">
       <List
         items={projectsData}
         ListItem={({ item }) => (

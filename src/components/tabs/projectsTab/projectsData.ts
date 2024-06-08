@@ -7,6 +7,9 @@ import PYTHON_LOGO from "../../../assets/python_logo.png";
 import YARN_LOGO from "../../../assets/yarn_logo.png";
 import BOOTSTRAP_LOGO from "../../../assets/bootstrap-logo.svg";
 import VITE_LOGO from "../../../assets/vite.png";
+import TAILWIND_LOGO from "../../../assets/Tailwind_CSS_Logo.svg.png";
+import SVELTE_LOGO from "../../../assets/svelte_logo.svg";
+import NETLIFY_LOGO from "../../../assets/Netlifty_logo.png";
 import CODE_COMPANION_GENERATE from "../../../assets/projects/code_companion/generate.png";
 import CODE_COMPANION_ANALYSE from "../../../assets/projects/code_companion/analyse_code.png";
 import CODE_COMPANION_GENERATE_TEST from "../../../assets/projects/code_companion/generate_test.png";
@@ -14,6 +17,10 @@ import CODE_COMPANION_SETTINGS from "../../../assets/projects/code_companion/set
 import CODE_COMPANION_SAVE_OPEN from "../../../assets/projects/code_companion/save_open.png";
 import CODE_COMPANION_VIEW_EDITOR from "../../../assets/projects/code_companion/view_input_editor.png";
 import CODE_COMPANION_OPTIONS from "../../../assets/projects/code_companion/options.png";
+import FLEXBOX_EDITING_PARENT from "../../../assets/projects/flexbox-playground/editing_parent_flex_properties.png";
+import FLEXBOX_EDITING_PARENT_CSUTOM from "../../../assets/projects/flexbox-playground/editing_parent_flex_custom_properties.png";
+import FLEXBOX_EDITING_CHILD from "../../../assets/projects/flexbox-playground/editing_flexitem_properties.png";
+import FLEXBOX_EDITING_CHILD_CUSTOM from "../../../assets/projects/flexbox-playground/editing_flexitem_custom_properties.png";
 
 export type T_image = {
   title: string;
@@ -32,11 +39,14 @@ export type T_solution = {
 
 export type T_TechStack = {
   techStack: string;
-  imgSrg: string;
+  imgSrc: string;
 };
 
 export type T_ProjectsData = {
   title: T_title;
+  githubLink: string;
+  appLink: string;
+  appLinkName: string;
   problemStatement: string[];
   solution: T_solution[];
   techStacks: T_TechStack[];
@@ -52,6 +62,7 @@ export const projectsData: Partial<T_ProjectsData>[] = [
       projectName: "Code Companion",
       imgSrc: "",
     },
+    githubLink: "https://github.com/jay-Savlani/electron-code-companion",
     summary:
       "Code and unit test generation desktop tool driven by ChatGPT with code analysis, inbuilt code editor, generation histor and file save functionality with servelerss AWS lambda api.",
     problemStatement: [
@@ -108,43 +119,43 @@ export const projectsData: Partial<T_ProjectsData>[] = [
     techStacks: [
       {
         techStack: "ElectronJs",
-        imgSrg: ELECTRON_LOGO,
+        imgSrc: ELECTRON_LOGO,
       },
       {
         techStack: "ReactJs",
-        imgSrg: REACT_LOGO,
+        imgSrc: REACT_LOGO,
       },
       {
         techStack: "Serverless AWS Lamda",
-        imgSrg: AWS_LAMBDA_LOGO,
+        imgSrc: AWS_LAMBDA_LOGO,
       },
       {
         techStack: "Electron Forge",
-        imgSrg: ELECTRON_LOGO,
+        imgSrc: ELECTRON_LOGO,
       },
       {
         techStack: "NodeJs",
-        imgSrg: NODE_LOGO,
+        imgSrc: NODE_LOGO,
       },
       {
         techStack: "Typescript",
-        imgSrg: TYPESCRIPT_LOGO,
+        imgSrc: TYPESCRIPT_LOGO,
       },
       {
         techStack: "Bootstrap",
-        imgSrg: BOOTSTRAP_LOGO,
+        imgSrc: BOOTSTRAP_LOGO,
       },
       {
         techStack: "Yarn package manager",
-        imgSrg: YARN_LOGO,
+        imgSrc: YARN_LOGO,
       },
       {
         techStack: "VITE",
-        imgSrg: VITE_LOGO,
+        imgSrc: VITE_LOGO,
       },
       {
         techStack: "python",
-        imgSrg: PYTHON_LOGO,
+        imgSrc: PYTHON_LOGO,
       },
     ],
     images: [
@@ -155,6 +166,82 @@ export const projectsData: Partial<T_ProjectsData>[] = [
       { title: "Save / Open Files", imgSrc: CODE_COMPANION_SAVE_OPEN },
       { title: "View / Hide Editor", imgSrc: CODE_COMPANION_VIEW_EDITOR },
       { title: "Options", imgSrc: CODE_COMPANION_OPTIONS },
+    ],
+  },
+  {
+    title: {
+      projectName: "Flexbox Playground",
+      imgSrc: "",
+    },
+    githubLink: "https://github.com/jay-Savlani/flex-playground",
+    appLink: "https://j-savlani-flex-playground.netlify.app/",
+    appLinkName: "Start Learning",
+    summary:
+      "A SvetlteJs driven fun and interactive flexbox playground to learn and master CSS. With around 500 lines of code and only 100 lines of code for application logic, it is a compact powerhouse to improve CSS skills",
+    problemStatement: [
+      "To learn and master flexbox, in initial stages, learner has to create multiple divs and experiment with CSS properties, which is time consuming experience.",
+      "Running applications in local server or codesandbox to achieve flexbox experimentation.",
+      "Manual typing of code for learning or quick reference and brush up of knowledge.",
+      "A need to play with flexbox without tedious typing and interactively experimention on how other CSS properties affect flexbox.",
+      "Segregation between flexbox properties and other css properties and how they affect each other.",
+    ],
+    solution: [
+      {
+        solution: "Interactive webapp",
+        description:
+          "Flexbox playground is an interactive webapp to learn and master flexbox and improve css skills.",
+      },
+      {
+        solution:
+          "Say goodbye to manually typing code for boxes and flex css properties",
+        description:
+          "Flexbox playground offers creating boxes on the fly with a simple numerical input and control flexbox properties of parent flexbox and child flex item.",
+      },
+      {
+        solution:
+          "Custom CSS properties support for flexbox parent and flex item child",
+        description:
+          "Flexbox playground offers support for additional CSS properties other than flex properties which gives a seamless learning experience on how other CSS properties affect flexbox.",
+      },
+      {
+        solution:
+          "Segregation between flex properties and other css properties",
+        description:
+          "Flexbox playgrounds offers a clean UI where in users can easily differentiate between flexbox properties and other css properties.",
+      },
+    ],
+    techStacks: [
+      {
+        techStack: "SvelteJs",
+        imgSrc: SVELTE_LOGO,
+      },
+      {
+        techStack: "Tailwind CSS",
+        imgSrc: TAILWIND_LOGO,
+      },
+      {
+        techStack: "Vite",
+        imgSrc: VITE_LOGO,
+      },
+      {
+        techStack: "Netlify",
+        imgSrc: NETLIFY_LOGO,
+      },
+    ],
+    images: [
+      {
+        title: "Flexbox Parent CSS Properties",
+        imgSrc: FLEXBOX_EDITING_PARENT,
+      },
+      {
+        title: "Flexbox Parent CSS Custom Properties",
+        imgSrc: FLEXBOX_EDITING_PARENT_CSUTOM,
+      },
+      { title: "Flexbox Item CSS Properties", imgSrc: FLEXBOX_EDITING_CHILD },
+      {
+        title: "Flexbox Parent CSS Custom Properties",
+        imgSrc: FLEXBOX_EDITING_CHILD_CUSTOM,
+      },
     ],
   },
 ];

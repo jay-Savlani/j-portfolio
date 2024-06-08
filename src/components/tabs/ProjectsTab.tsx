@@ -35,13 +35,22 @@ export const ProjectsTab = () => {
         ListItem={({ item }) => (
           <div>
             <div className="flex flex-row items-center justify-between mb-4">
-              <h2 className="text-4xl lg:text-6xl text-transparent  bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text animation-fade-in">
+              <h2 className="text-4xl lg:text-6xl text-transparent py-3 bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text animation-fade-in">
                 {item.title?.projectName}
               </h2>
-              <PlainLink
-                href="https://github.com/jay-Savlani/electron-code-companion"
-                target="_blank"
-              >
+
+              {item.appLink && (
+                <PlainLink href={item.appLink} target="_blank">
+                  <button className="bg-gradient-to-r from-blue-200 to-cyan-200 px-1.5 py-2 lg:px-3 lg:py-2 rounded text-slate-800 text-sm lg:text-lg mx-3">
+                    <div className="flex flex-row items-center gap-2">
+                      <span className="tracking-wide">{item.appLinkName}</span>
+                      <span>&#x2197;</span>
+                    </div>
+                  </button>
+                </PlainLink>
+              )}
+
+              <PlainLink href={item.githubLink} target="_blank">
                 <img src={GITHUB_LOGO} className="w-10 h-10 hover:opacity-70" />
               </PlainLink>
             </div>
@@ -92,7 +101,7 @@ export const ProjectsTab = () => {
                   classes="my-8 flex flex-col gap-8 lg:max-h-[300px] flex-wrap"
                   ListItem={({ item }) => (
                     <li key={item.techStack} className="flex flex-row gap-8">
-                      <img src={item.imgSrg} className="h-10 w-10" />
+                      <img src={item.imgSrc} className="h-10 w-10" />
                       <span className="text-lg">{item.techStack}</span>
                     </li>
                   )}

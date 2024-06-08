@@ -17,6 +17,7 @@ import BOOTSTRAP_LOGO from "../../../assets/bootstrap-logo.svg";
 import TAILWIND_LOGO from "../../../assets/Tailwind_CSS_Logo.svg.png";
 import PYTHON_LOGO from "../../../assets/python_logo.png";
 import BASH_LOGO from "../../../assets/bash_logo.jpg";
+import SVELTE_LOGO from "../../../assets/svelte_logo.svg";
 
 export type T_SKillData = {
   title: string;
@@ -138,5 +139,11 @@ export const skillData: T_SKillData[] = [
     src: PYTHON_LOGO,
     summary:
       "Python scripting involves writing Python code to automate tasks, perform data manipulation, and build applications. Python's simplicity, readability, and extensive standard library make it a popular choice for scripting, allowing users to easily write scripts for various purposes such as system administration, web scraping, data analysis, and more. Python scripting is widely used across different domains, from software development to scientific computing and beyond.",
+  },
+  {
+    title: "SvelteJs",
+    src: SVELTE_LOGO,
+    summary:
+      "Svelte is a modern JavaScript framework designed for building fast, efficient web applications. Unlike traditional frameworks, Svelte shifts much of the work to compile time, producing highly optimized, minimal JavaScript code that runs in the browser. This approach results in faster load times and improved performance, as well as a more straightforward development experience by using a simple, declarative syntax. Additionally, Svelte's component-based architecture and reactive programming model make it an attractive choice for developers looking to create dynamic user interfaces.",
   },
 ];

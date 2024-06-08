@@ -207,7 +207,7 @@ export const projectsData: Partial<T_ProjectsData>[] = [
         solution:
           "Segregation between flex properties and other css properties",
         description:
-          "Flexbox playgrounds offers a clean UI where in users can easily differentiate between flexbox properties and other css properties.",
+          "Flexbox playground offers a clean UI where in users can easily differentiate between flexbox properties and other css properties.",
       },
     ],
     techStacks: [

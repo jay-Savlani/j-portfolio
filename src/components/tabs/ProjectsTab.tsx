@@ -39,21 +39,29 @@ export const ProjectsTab = () => {
                 {item.title?.projectName}
               </h2>
 
-              {item.appLink && (
+              <div className="shrink-0">
+                <PlainLink href={item.githubLink} target="_blank">
+                  <img
+                    src={GITHUB_LOGO}
+                    className="w-10 h-10 hover:opacity-70"
+                  />
+                </PlainLink>
+              </div>
+            </div>
+
+            {item.appLink && (
+              <div className="mb-4">
                 <PlainLink href={item.appLink} target="_blank">
-                  <button className="bg-gradient-to-r from-blue-200 to-cyan-200 px-1.5 py-2 lg:px-3 lg:py-2 rounded text-slate-800 text-sm lg:text-lg mx-3">
+                  <button className="bg-gradient-to-r from-blue-200 to-cyan-200 px-1.5 py-2 lg:px-3 lg:py-2 rounded text-slate-800 text-sm lg:text-lg">
                     <div className="flex flex-row items-center gap-2">
                       <span className="tracking-wide">{item.appLinkName}</span>
                       <span>&#x2197;</span>
                     </div>
                   </button>
                 </PlainLink>
-              )}
+              </div>
+            )}
 
-              <PlainLink href={item.githubLink} target="_blank">
-                <img src={GITHUB_LOGO} className="w-10 h-10 hover:opacity-70" />
-              </PlainLink>
-            </div>
             <p className="mt-3">{item.summary}</p>
             <div className="flex flex-row justify-center mt-8 mb-14">
               <ProjectImageCarousel data={item.images || []} />

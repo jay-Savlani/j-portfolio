@@ -11,7 +11,7 @@ init_life("programming");
 
 export const HomeTab = () => {
   return (
-    <div className="pt-4 md:pt-8">
+    <div className="pt-4 md:pt-8 overflow-hidden">
       <div className="h-auto sm:h-[80vh] py-8 sm:py-0 home-bg md:rounded-lg">
         <div className="flex flex-col justify-center h-full w-full md:w-3/4  lg:w-1/2 p-4">
           <div className="px-0 sm:px-8 text-center md:text-left">

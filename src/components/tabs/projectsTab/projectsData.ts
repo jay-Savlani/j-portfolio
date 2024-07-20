@@ -1,6 +1,7 @@
 import ELECTRON_LOGO from "../../../assets/electronjs-icon.svg";
 import NODE_LOGO from "../../../assets/nodejs.svg";
 import REACT_LOGO from "../../../assets/react.svg";
+import CSS_LOGO from "../../../assets/css-3.png";
 import TYPESCRIPT_LOGO from "../../../assets/typescript-design-assets/ts-logo-256.svg";
 import AWS_LAMBDA_LOGO from "../../../assets/AWS_lambda.png";
 import PYTHON_LOGO from "../../../assets/python_logo.png";
@@ -21,6 +22,10 @@ import FLEXBOX_EDITING_PARENT from "../../../assets/projects/flexbox-playground/
 import FLEXBOX_EDITING_PARENT_CSUTOM from "../../../assets/projects/flexbox-playground/editing_parent_flex_custom_properties.png";
 import FLEXBOX_EDITING_CHILD from "../../../assets/projects/flexbox-playground/editing_flexitem_properties.png";
 import FLEXBOX_EDITING_CHILD_CUSTOM from "../../../assets/projects/flexbox-playground/editing_flexitem_custom_properties.png";
+import TRANSFORM_PLAYGROUND_TRANSFORM_ROTATE from "../../../assets/projects/transform-playground/transform_rotate.png";
+import TRANSFORM_PLAYGROUND_TRANSFORM_SKEW from "../../../assets/projects/transform-playground/transform_skew.png";
+import TRANSFORM_PLAYGROUND_LOCATE_XY_COORDS from "../../../assets/projects/transform-playground/locate_xy_coords.png";
+import TRANSFORM_PLAYGROUND_TRANSFORM_ORIGIN from "../../../assets/projects/transform-playground/transform_origin.png";
 
 export type T_image = {
   title: string;
@@ -175,9 +180,9 @@ export const projectsData: Partial<T_ProjectsData>[] = [
     },
     githubLink: "https://github.com/jay-Savlani/flex-playground",
     appLink: "https://j-savlani-flex-playground.netlify.app/",
-    appLinkName: "Start Learning",
+    appLinkName: "Start Flexing",
     summary:
-      "A SvetlteJs driven fun and interactive flexbox playground to learn and master CSS. With around 500 lines of code and only 100 lines of code for application logic, it is a compact powerhouse to improve CSS skills",
+      "A SvetlteJs driven fun and interactive flexbox playground to learn and master CSS. With around 500 lines of code and only 100 lines of code for application logic, it is a compact powerhouse to improve CSS skills.",
     problemStatement: [
       "To learn and master flexbox, in initial stages, learner has to create multiple divs and experiment with CSS properties, which is time consuming experience.",
       "Running applications in local server or codesandbox to achieve flexbox experimentation.",
@@ -241,6 +246,74 @@ export const projectsData: Partial<T_ProjectsData>[] = [
       {
         title: "Flexbox Parent CSS Custom Properties",
         imgSrc: FLEXBOX_EDITING_CHILD_CUSTOM,
+      },
+    ],
+  },
+  {
+    title: {
+      projectName: "Transform Playground",
+      imgSrc: "",
+    },
+    githubLink: "https://github.com/jay-Savlani/transform-playground",
+    appLink: "https://jay-savlani.github.io/transform-playground/",
+    appLinkName: "Start Transforming",
+    summary:
+      "A react driven visually appealing fun interactive transform playground to get grasp on significant CSS property transform which is widely used to make exceptional designs.",
+    problemStatement: [
+      "To learn transform from tutorial articles is little difficult as there are many aspects to transform property such as X,Y movement, rotation, transform origin, etc.",
+      "It's vital to understand how all aspects of transform work together and how they influence each other in order to reach the expected result.",
+      "Transform rotation is common, but to understand how transforming the rotation origin can be leveraged to get various results which would be difficult otherwise with other properties in CSS requires an interactive playground.",
+      "Often, we work with different units in CSS. While using percentage units, it gets confusing to understand to which elements relative percentage refer to.",
+    ],
+    solution: [
+      {
+        solution: "Visually appealing interctive playground",
+        description:
+          "Transform playground is a visually appealing playground to become an expert on transform css property.",
+      },
+      {
+        solution: "Abundant properties",
+        description:
+          "Transform playground is strapped with multiple properties of transform such as X,Y transform, rotation, skew and transform origin. This offers a holistic learning approach to transform and how these properties come together to reach expected results.",
+      },
+      {
+        solution: "Multiple units",
+        description:
+          "Transform playground features ability to work with multiple units - rem, px and percentage %. This allows not only to understand relative differences between these units, but also to understand to which element, percentage % units are referred.",
+      },
+      {
+        solution: "Locate X,Y co-ordinates with respect to parent element",
+        description:
+          "When working with transform, especially skew and rotation, the intended X,Y co-ordinates might not be at the correct position depending on the transform values. This is expected, but to understand how exactly X,Y position change with respect to parent element is vital to reach an expert level in transform CSS.",
+      },
+      {
+        solution: "Keyboard shortcuts",
+        description:
+          "Transform playground allows multiple keyboard shortcuts such as ENTER to apply, ESC to reset and M to toggle the audio making it easier for learner to quickly move between different states of the playground.",
+      },
+      {
+        solution: "Fun experience",
+        description:
+          "Transform playground using Transfomers theme (bumblebee) and also features mechanical morph sound which can be controlled through audio checkbox and M key.",
+      },
+    ],
+    techStacks: [
+      { techStack: "React Js", imgSrc: REACT_LOGO },
+      { techStack: "Native CSS", imgSrc: CSS_LOGO },
+    ],
+    images: [
+      {
+        title: "Transform rotate",
+        imgSrc: TRANSFORM_PLAYGROUND_TRANSFORM_ROTATE,
+      },
+      { title: "Transform skew", imgSrc: TRANSFORM_PLAYGROUND_TRANSFORM_SKEW },
+      {
+        title: "Locate X,Y coordinates",
+        imgSrc: TRANSFORM_PLAYGROUND_LOCATE_XY_COORDS,
+      },
+      {
+        title: "Transform origin",
+        imgSrc: TRANSFORM_PLAYGROUND_TRANSFORM_ORIGIN,
       },
     ],
   },

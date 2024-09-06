@@ -1,30 +1,37 @@
-import { useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import "./main.css";
-import Navigation from "./components/Navigation";
-import TabContainer from "./components/TabContainer";
-import { Tab } from "./components/Tab";
 
-export type TABS =
-  | "home"
-  | "skills"
-  | "professional experience"
-  | "achievements"
-  | "projects";
+import { routeConstants } from "./components/constants";
+import Root from "./components/Root";
+import { HomeTab } from "./components/tabs/HomeTab";
+import { SkillsTab } from "./components/tabs/SkillsTab";
+import { ProfessionalExperienceTab } from "./components/tabs/ProfessionalExperinceTab";
+import { ProjectsTab } from "./components/tabs/ProjectsTab";
+import { AchievementsTab } from "./components/tabs/AchievementsTab";
+
+const router = createBrowserRouter(
+  [
+    {
+      path: routeConstants.HOME,
+      element: <Root />,
+      children: [
+        { index: true, element: <HomeTab /> },
+        { path: routeConstants.SKILLS, element: <SkillsTab /> },
+        {
+          path: routeConstants.PROFESSIONAL_EXPERIENCE,
+          element: <ProfessionalExperienceTab />,
+        },
+        { path: routeConstants.PROJECTS, element: <ProjectsTab /> },
+        { path: routeConstants.ACHIEVEMENTS, element: <AchievementsTab /> },
+      ],
+    },
+  ],
+  { basename: "/j-portfolio" },
+);
 
 function App() {
-  let [selectedTab, setSelectedTab] = useState<TABS>("home");
-
-  return (
-    <>
-      <Navigation setActiveTab={setSelectedTab} activeTab={selectedTab} />
-      <div className=" sm:px-6 md:px-8 lg:px-12 h-full pt-16 md:pt-20">
-        <TabContainer>
-          <Tab tab={selectedTab} />
-        </TabContainer>
-      </div>
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

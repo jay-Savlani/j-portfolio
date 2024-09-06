@@ -15,7 +15,7 @@ type T_ContentProps = {
 const Content = ({ children, title, titleClasses }: T_ContentProps) => {
   let backgroundClasses =
     "text-transparent bg-gradient-to-r from-red-700 to-red-600 bg-clip-text ";
-  let headingClasses = (backgroundClasses += titleClasses
+  const headingClasses = (backgroundClasses += titleClasses
     ? titleClasses
     : "text-3xl mt-8");
 
@@ -34,9 +34,16 @@ export const ProjectsTab = () => {
         items={projectsData}
         ListItem={({ item }) => (
           <div>
-            <div className="flex flex-row items-center justify-between mb-4">
-              <h2 className="text-4xl lg:text-6xl text-transparent py-3 bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text animation-fade-in">
-                {item.title?.projectName}
+            <div className="flex flex-row items-center justify-between mb-12">
+              <h2
+                id={item.title?.projectName.replace(" ", "-").toLowerCase()}
+                className="text-4xl lg:text-6xl text-transparent py-3 bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text animation-fade-in"
+              >
+                <a
+                  href={`#${item.title?.projectName.replace(" ", "-").toLowerCase()}`}
+                >
+                  {item.title?.projectName}
+                </a>
               </h2>
 
               <div className="shrink-0">

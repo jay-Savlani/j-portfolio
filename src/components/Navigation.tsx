@@ -1,14 +1,22 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useMediaQueryContext } from "../contexts/MediaQueryProvider";
 import { List } from "./utilityComponents/List";
 import PROFILE_IMG from "../assets/profile.jpg";
-import { TABS } from "../App";
 import { Button } from "./utilityComponents/Button";
 import { PlainLink } from "./utilityComponents/PlainLink";
-import { useMediaQueryContext } from "../contexts/MediaQueryProvider";
 import { HorizontalDivider } from "./utilityComponents/HorizontalDivider";
+import { routeConstants } from "./constants";
 import "./common.css";
 
-const listItems: TABS[] = [
+type ROUTE_NAME =
+  | "home"
+  | "skills"
+  | "professional experience"
+  | "projects"
+  | "achievements";
+
+const listItems: ROUTE_NAME[] = [
   "home",
   "skills",
   "professional experience",
@@ -16,9 +24,12 @@ const listItems: TABS[] = [
   "achievements",
 ];
 
-type T_NavigationProps = {
-  setActiveTab: Dispatch<SetStateAction<TABS>>;
-  activeTab: TABS;
+const routeMap: Record<ROUTE_NAME, string> = {
+  home: routeConstants.HOME,
+  skills: routeConstants.SKILLS,
+  "professional experience": routeConstants.PROFESSIONAL_EXPERIENCE,
+  projects: routeConstants.PROJECTS,
+  achievements: routeConstants.ACHIEVEMENTS,
 };
 
 const BurgerMenuIcon = () => {
@@ -34,20 +45,20 @@ const BurgerMenuIcon = () => {
 const BurgerMenuCloseIcon = () => {
   return (
     <div className="relative h-full flex items-center justify-center animation-fade-in-quick">
-      <span className="block absolute h-0.5 w-full bg-white transform rotate-45 transform transition-transform duration-300 ease-in-out"></span>
+      <span className="block absolute h-0.5 w-full bg-white transform rotate-45  transition-transform duration-300 ease-in-out"></span>
       <span className="block absolute h-0.5 w-full bg-white transform -rotate-45"></span>
     </div>
   );
 };
 
-const NavResponsive = ({ activeTab, setActiveTab }: T_NavigationProps) => {
+const NavResponsive = () => {
   const [burgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
 
   const handleToggle = () => {
     setIsBurgerMenuOpen((prev) => !prev);
   };
 
-  let overlayClasses = `absolute flex flex-col justify-center ${
+  const overlayClasses = `absolute flex flex-col justify-center ${
     burgerMenuOpen ? "translate-x-0" : "translate-x-full"
   } top-0 left-0 w-[100vw] h-[100vh] p-6 bg-gradient-to-r from-indigo-600 to-indigo-950 transition-all duration-200`;
 
@@ -57,34 +68,19 @@ const NavResponsive = ({ activeTab, setActiveTab }: T_NavigationProps) => {
         <List
           items={listItems}
           classes="text-center justify-center items-center"
-          onSelect={setActiveTab}
-          selectedItem={activeTab}
-          ListItem={({ item, selectedItem, onSelect }) => {
-            const clickHandler = (item: TABS) => {
-              if (onSelect) {
-                handleToggle();
-                onSelect(item);
-              }
-            };
-
+          ListItem={({ item }) => {
             if (item === "home") {
               return null;
             }
 
-            let classes =
+            const classes =
               "font-semibold hover:opacity-70 cursor-pointer capitalize flex flex-col justify-center transition-all duration-300 text-white text-xl tracking-wider my-10 w-max ";
 
-            if (selectedItem === item) {
-              classes += "border-b border-slate-50";
-            }
-
             return (
-              <li
-                className={classes}
-                key={item}
-                onClick={() => clickHandler(item)}
-              >
-                {item}
+              <li className={classes} key={item}>
+                <NavLink to={routeMap[item]} onClick={handleToggle}>
+                  {item}
+                </NavLink>
               </li>
             );
           }}
@@ -98,7 +94,6 @@ const NavResponsive = ({ activeTab, setActiveTab }: T_NavigationProps) => {
             href="https://github.com/jay-Savlani/"
             target="_blank"
           >
-            <span className="me-2"> &#x2197;</span>
             Github
           </PlainLink>
 
@@ -107,22 +102,18 @@ const NavResponsive = ({ activeTab, setActiveTab }: T_NavigationProps) => {
             href="https://www.linkedin.com/in/jay-savlani/"
             target="_blank"
           >
-            <span className="me-2"> &#x2197;</span>
             LinkedIn
           </PlainLink>
         </div>
       </div>
 
       <div className="flex flex-row items-center justify-between">
-        <button
-          className="p-0 border-none"
-          onClick={() => setActiveTab("home")}
-        >
+        <NavLink to={routeConstants.HOME} className="p-0 border-none">
           <img
             src={PROFILE_IMG}
-            className="h-12 w-14 rounded-full me-6 cursor-pointer me-[-8px]"
+            className="h-12 w-14 rounded-full cursor-pointer me-[-8px]"
           />
-        </button>
+        </NavLink>
 
         {!burgerMenuOpen && (
           <button className="block h-8 w-8" onClick={handleToggle}>
@@ -139,54 +130,49 @@ const NavResponsive = ({ activeTab, setActiveTab }: T_NavigationProps) => {
   );
 };
 
-const Navigation = ({ activeTab, setActiveTab }: T_NavigationProps) => {
+const Navigation = () => {
   const { windowSize, tailwindBreakpoints } = useMediaQueryContext();
 
   if (windowSize <= tailwindBreakpoints["md"]) {
-    return <NavResponsive activeTab={activeTab} setActiveTab={setActiveTab} />;
+    return <NavResponsive />;
   }
 
   return (
-    <nav className="fixed top-0 left-0 py-6 px-12 w-full bg-white ">
+    <nav className="fixed top-0 left-0 py-6 px-12 w-full bg-white z-50">
       <div className="flex flex-row items-center justify-between">
         <div className="flex flex-row items-center">
           <List
             items={listItems}
             classes="flex flex-row gap-8 items-stretch"
-            onSelect={setActiveTab}
-            selectedItem={activeTab}
-            ListItem={({ item, selectedItem, onSelect }) => {
-              const clickHandler = (item: TABS) => {
-                if (onSelect) {
-                  onSelect(item);
-                }
-              };
-
+            ListItem={({ item }) => {
               if (item === "home") {
                 return (
-                  <li key={item} onClick={() => clickHandler(item)}>
-                    <img
-                      src={PROFILE_IMG}
-                      className="h-12 w-14 rounded-full me-6 cursor-pointer me-[-8px]"
-                    />
+                  <li key={item}>
+                    <NavLink to={routeConstants.HOME}>
+                      <img
+                        src={PROFILE_IMG}
+                        className="h-12 w-14 rounded-full cursor-pointer me-[-8px]"
+                      />
+                    </NavLink>
                   </li>
                 );
               }
 
-              let classes =
-                "text-sm lg:text-base font-semibold hover:opacity-70 cursor-pointer capitalize flex flex-col justify-center transition-all duration-300 ";
-
-              if (selectedItem === item) {
-                classes += "border-b border-slate-900";
-              }
+              const classes =
+                "h-full text-sm lg:text-base font-semibold hover:opacity-70 cursor-pointer capitalize flex flex-col justify-center transition-all duration-300 ";
 
               return (
-                <li
-                  className={classes}
-                  key={item}
-                  onClick={() => clickHandler(item)}
-                >
-                  {item}
+                <li key={item}>
+                  <NavLink
+                    to={routeMap[item]}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "border-b border-slate-900 " + classes
+                        : classes
+                    }
+                  >
+                    {item}
+                  </NavLink>
                 </li>
               );
             }}

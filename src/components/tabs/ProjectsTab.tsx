@@ -1,10 +1,36 @@
-import { ReactNode } from "react";
+import React, { ReactNode, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+import "../common.css";
 import { projectsData } from "./projectsTab/projectsData";
 import { List } from "../utilityComponents/List";
 import { ProjectImageCarousel } from "./projectsTab/ProjectImageCarousel";
-import "../common.css";
 import { PlainLink } from "../utilityComponents/PlainLink";
 import GITHUB_LOGO from "../../assets/github-mark.png";
+
+function scrollProjectTitleIntoView(id: string) {
+  // skip scroll into view for first h2 element
+  if (id === document.getElementsByTagName("h2")[0].id) {
+    return;
+  }
+
+  const element = document.getElementById(id);
+  if (element) element.scrollIntoView({ behavior: "smooth" });
+}
+
+function appendProjectIdToUrl(projectId: string) {
+  const currentHref = window.location.href;
+
+  // regex to check if any anchor id present
+  const reg = new RegExp("#[a-z].*");
+  if (reg.test(currentHref)) {
+    window.history.pushState(
+      null,
+      "",
+      currentHref.replace(reg, "#" + projectId)
+    );
+  } else window.history.pushState(null, "", currentHref + "#" + projectId);
+}
 
 type T_ContentProps = {
   title?: string;
@@ -28,6 +54,27 @@ const Content = ({ children, title, titleClasses }: T_ContentProps) => {
 };
 
 export const ProjectsTab = () => {
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const id = hash.replace("#", "");
+
+      // React has an issue with scroll into view behaviour
+      // probably becuase of document not being rendered completely
+      // therefore adding a setTimeout for the document to load properly
+      setTimeout(() => scrollProjectTitleIntoView(id), 500);
+    }
+  }, [hash]);
+
+  function handleProjectTitleClick(
+    event: React.MouseEvent<HTMLHeadingElement>
+  ) {
+    const elementId = (event.target as HTMLHeadingElement).id;
+    scrollProjectTitleIntoView(elementId);
+    appendProjectIdToUrl(elementId);
+  }
+
   return (
     <div className="flex px-6 lg:px-28 mt-4 flex-col animation-fade-in-quick overflow-hidden">
       <List
@@ -35,7 +82,11 @@ export const ProjectsTab = () => {
         ListItem={({ item }) => (
           <div>
             <div className="flex flex-row items-center justify-between mb-12">
-              <h2 className="text-4xl lg:text-6xl text-transparent py-3 bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text animation-fade-in">
+              <h2
+                id={item.title?.projectName.replace(" ", "-").toLowerCase()}
+                className="text-4xl lg:text-6xl text-transparent py-3 bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text animation-fade-in cursor-pointer"
+                onClick={handleProjectTitleClick}
+              >
                 {item.title?.projectName}
               </h2>
 

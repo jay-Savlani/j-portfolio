@@ -23,7 +23,7 @@ export const data: T_ProfessionalExperienceData[] = [
       "Bash scripting",
       "python scripting",
     ],
-    designation: "Front End Developer",
+    designation: "Software Engineer",
     address: "Banglore",
     workDurationRange: "Mar 2022 - Present",
     points: [

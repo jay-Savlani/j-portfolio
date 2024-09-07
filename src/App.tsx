@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import "./main.css";
 
@@ -10,25 +10,22 @@ import { ProfessionalExperienceTab } from "./components/tabs/ProfessionalExperin
 import { ProjectsTab } from "./components/tabs/ProjectsTab";
 import { AchievementsTab } from "./components/tabs/AchievementsTab";
 
-const router = createBrowserRouter(
-  [
-    {
-      path: routeConstants.HOME,
-      element: <Root />,
-      children: [
-        { index: true, element: <HomeTab /> },
-        { path: routeConstants.SKILLS, element: <SkillsTab /> },
-        {
-          path: routeConstants.PROFESSIONAL_EXPERIENCE,
-          element: <ProfessionalExperienceTab />,
-        },
-        { path: routeConstants.PROJECTS, element: <ProjectsTab /> },
-        { path: routeConstants.ACHIEVEMENTS, element: <AchievementsTab /> },
-      ],
-    },
-  ],
-  { basename: "/j-portfolio" },
-);
+const router = createHashRouter([
+  {
+    path: routeConstants.HOME,
+    element: <Root />,
+    children: [
+      { index: true, element: <HomeTab /> },
+      { path: routeConstants.SKILLS, element: <SkillsTab /> },
+      {
+        path: routeConstants.PROFESSIONAL_EXPERIENCE,
+        element: <ProfessionalExperienceTab />,
+      },
+      { path: routeConstants.PROJECTS, element: <ProjectsTab /> },
+      { path: routeConstants.ACHIEVEMENTS, element: <AchievementsTab /> },
+    ],
+  },
+]);
 
 function App() {
   return <RouterProvider router={router} />;

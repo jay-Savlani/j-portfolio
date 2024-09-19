@@ -12,7 +12,7 @@ export const CompanyItem = ({ item }: T_CompanyItemProps) => {
         <div className="col-span-5">
           <div className="flex flex-col text-center  gap-3">
             <p className="text-[30px]">{item.title}</p>
-            <p className=" text-3xl lg:text-[40px] tracking-widest font-bold bg-gradient-to-r from-sky-500 to-indigo-500 text-transparent bg-clip-text p-2">
+            <p className=" text-3xl lg:text-[40px] tracking-widest font-bold bg-gradient-to-r from-orange-500 to-orange-800 text-transparent bg-clip-text p-2">
               {item.designation}
             </p>
             <p className="text-base">{item.address}</p>
@@ -25,7 +25,7 @@ export const CompanyItem = ({ item }: T_CompanyItemProps) => {
             {item.skills.map((skill) => (
               <li
                 key={skill}
-                className=" rounded text-slate-900 px-2 py-1 text-wrap tracking-wider"
+                className=" rounded px-2 py-1 text-wrap tracking-wider"
               >
                 {skill}
               </li>
@@ -33,7 +33,7 @@ export const CompanyItem = ({ item }: T_CompanyItemProps) => {
           </ul>
         </div>
 
-        <div className="col-span-3 text-black p-6 pt-0 rounded-lg">
+        <div className="col-span-3 p-6 pt-0 rounded-lg">
           <ul className="flex flex-col gap-4 justify-self-end">
             {item.points.map((point, index) => (
               <div className="flex flex-row gap-6 items-center hover:tracking-wider hover:-translate-y-1.5 transition-all hover:font-semibold">

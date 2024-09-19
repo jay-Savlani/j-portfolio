@@ -18,7 +18,7 @@ const SlideButton = ({ children, ...rest }: T_SlideButton) => {
   return (
     <button
       className={`mx-2 lg:mx-10 px-1 lg:px-3 py-2 ${
-        rest.disabled ? "text-slate-300" : "text-slate-700"
+        rest.disabled ? "text-slate-700" : "text-orange-500"
       } cursor-pointer hover:opacity-70 text-4xl font-bold`}
       {...rest}
     >
@@ -29,7 +29,7 @@ const SlideButton = ({ children, ...rest }: T_SlideButton) => {
 
 const ImageWithTitle = ({ image }: T_ImageWithTitleProps) => {
   return (
-    <div className="animation-fade-in-quick">
+    <div className="animation-fade-in-quick z-10">
       <img
         src={image.imgSrc}
         className="block w-[80vw]  lg:h-[500px] lg:w-auto"
@@ -63,7 +63,7 @@ export const ProjectImageCarousel = ({ data }: T_CarouselProps) => {
 
   return (
     <div>
-      <p className="text-base mb-2 lg:text-lg text-center text-slate-800 mt-5 p-1 lg:p-2 font-semibold">
+      <p className="text-base mb-2 lg:text-lg text-center mt-5 p-1 lg:p-2 font-semibold">
         {data[index].title}
       </p>
 

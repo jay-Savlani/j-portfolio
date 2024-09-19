@@ -21,8 +21,8 @@ type T_SlideButton = {
 const SlideButton = ({ children, ...rest }: T_SlideButton) => {
   return (
     <button
-      className={`mx-5 md:mx-10 p-3 bg-slate-700 text-slate-50 ${
-        rest.disabled ? "text-slate-400" : "text-slate-50"
+      className={`mx-5 md:mx-10 p-3 bg-orange-600  ${
+        rest.disabled ? "text-slate-800" : "text-slate-50"
       } cursor-pointer hover:opacity-70 rounded`}
       {...rest}
     >
@@ -40,10 +40,9 @@ const ImageWithTitle = ({
     if (onSelect) onSelect(title);
   };
 
-  let titleClasses =
-    "text-base md:text-lg text-center text-slate-800 mt-5 p-2 ";
+  let titleClasses = "text-base md:text-lg text-center text-white mt-5 p-2 ";
   if (selectedItem === image.title)
-    titleClasses += "bg-slate-700 text-white shadow-inner";
+    titleClasses += "bg-orange-700 text-white shadow-inner";
 
   return (
     <div className="animation-fade-in-quick text-center">

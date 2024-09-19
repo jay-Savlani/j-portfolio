@@ -16,7 +16,7 @@ export const AchievementsTab = () => {
                 {item.achievement}
               </h2>
 
-              <button className="bg-gradient-to-r from-violet-500 to-fuchsia-500 p-5 rounded hover:opacity-70 lg:ms-auto">
+              <button className="bg-gradient-to-r from-orange-500 to-orange-700 p-5 rounded hover:opacity-70 lg:ms-auto tracking-wider">
                 <a
                   className="no-underline text-white hover:text-slate-100"
                   href={item.certificateLink}

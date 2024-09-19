@@ -35,9 +35,9 @@ const routeMap: Record<ROUTE_NAME, string> = {
 const BurgerMenuIcon = () => {
   return (
     <div className="h-full flex flex-col gap-1.5 items-center justify-center">
-      <span className="block h-0.5 w-full bg-slate-700"></span>
-      <span className="block h-0.5 w-full bg-slate-700"></span>
-      <span className="block h-0.5 w-full bg-slate-700"></span>
+      <span className="block h-0.5 w-full bg-orange-500"></span>
+      <span className="block h-0.5 w-full bg-orange-500"></span>
+      <span className="block h-0.5 w-full bg-orange-500"></span>
     </div>
   );
 };
@@ -60,10 +60,10 @@ const NavResponsive = () => {
 
   const overlayClasses = `absolute flex flex-col justify-center ${
     burgerMenuOpen ? "translate-x-0" : "translate-x-full"
-  } top-0 left-0 w-[100vw] h-[100vh] p-6 bg-gradient-to-r from-indigo-600 to-indigo-950 transition-all duration-200`;
+  } top-0 left-0 w-[100vw] h-[100vh] p-6 bg-gradient-to-r from-orange-600 to-orange-500 transition-all duration-200`;
 
   return (
-    <nav className="fixed top-0 left-0 px-6 py-2 w-full bg-white z-50">
+    <nav className="fixed top-0 left-0 px-6 py-2 w-full z-50 bg-slate-900">
       <div className={overlayClasses}>
         <List
           items={listItems}
@@ -74,7 +74,7 @@ const NavResponsive = () => {
             }
 
             const classes =
-              "font-semibold hover:opacity-70 cursor-pointer capitalize flex flex-col justify-center transition-all duration-300 text-white text-xl tracking-wider my-10 w-max ";
+              "font-semibold hover:opacity-70 cursor-pointer capitalize flex flex-col justify-center transition-all duration-300 text-white text-xl tracking-wider my-10 w-max tracking-wider ";
 
             return (
               <li className={classes} key={item}>
@@ -108,10 +108,10 @@ const NavResponsive = () => {
       </div>
 
       <div className="flex flex-row items-center justify-between">
-        <NavLink to={routeConstants.HOME} className="p-0 border-none">
+        <NavLink to={routeConstants.HOME} className="py-3 border-none">
           <img
             src={PROFILE_IMG}
-            className="h-12 w-14 rounded-full cursor-pointer me-[-8px]"
+            className="h-12 w-14 rounded-full cursor-pointer me-[-8px]  ring-4 ring-orange-600"
           />
         </NavLink>
 
@@ -138,7 +138,7 @@ const Navigation = () => {
   }
 
   return (
-    <nav className="fixed top-0 left-0 py-6 px-12 w-full bg-white z-50">
+    <nav className="fixed top-0 left-0 py-6 px-12 w-full  z-50 text-white bg-slate-900">
       <div className="flex flex-row items-center justify-between">
         <div className="flex flex-row items-center">
           <List
@@ -151,7 +151,7 @@ const Navigation = () => {
                     <NavLink to={routeConstants.HOME}>
                       <img
                         src={PROFILE_IMG}
-                        className="h-12 w-14 rounded-full cursor-pointer me-[-8px]"
+                        className="h-12 w-14 rounded-full cursor-pointer me-[-8px] ring-4 ring-orange-600"
                       />
                     </NavLink>
                   </li>
@@ -159,7 +159,7 @@ const Navigation = () => {
               }
 
               const classes =
-                "h-full text-sm lg:text-base font-semibold hover:opacity-70 cursor-pointer capitalize flex flex-col justify-center transition-all duration-300 ";
+                "h-full text-sm lg:text-base font-semibold hover:opacity-70 cursor-pointer capitalize flex flex-col justify-center transition-all duration-300 tracking-wider ";
 
               return (
                 <li key={item}>
@@ -167,7 +167,7 @@ const Navigation = () => {
                     to={routeMap[item]}
                     className={({ isActive }) =>
                       isActive
-                        ? "border-b border-slate-900 " + classes
+                        ? "border-b border-orange-600 " + classes
                         : classes
                     }
                   >
@@ -178,8 +178,8 @@ const Navigation = () => {
             }}
           />
         </div>
-        <div className="flex flex-row gap-5">
-          <Button classes="bg-slate-900 text-white py-2.5 px-2.5 rounded hover:opacity-75 transition-all duration-300">
+        <div className="flex flex-row gap-5 tracking-wider text-white">
+          <Button classes="bg-orange-600 text-slate-100 py-2.5 px-2.5 rounded hover:opacity-75  transition-all duration-300">
             <PlainLink
               classes="text-inherit"
               href="https://github.com/jay-Savlani/"
@@ -188,7 +188,7 @@ const Navigation = () => {
               Github
             </PlainLink>
           </Button>
-          <Button classes="py-2.5 px-2.5 rounded border border-slate-900 hover:bg-slate-900 text-slate-900 hover:text-white transition-all duration-300">
+          <Button classes="py-2.5 px-2.5 rounded border border-orange-400 hover:bg-slate-700  hover:text-white transition-all duration-300">
             <PlainLink
               classes="text-inherit"
               href="https://www.linkedin.com/in/jay-savlani/"

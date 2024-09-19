@@ -6,7 +6,7 @@ import { projectsData } from "./projectsTab/projectsData";
 import { List } from "../utilityComponents/List";
 import { ProjectImageCarousel } from "./projectsTab/ProjectImageCarousel";
 import { PlainLink } from "../utilityComponents/PlainLink";
-import GITHUB_LOGO from "../../assets/github-mark.png";
+import GITHUB_LOGO from "../../assets/github-mark-white.png";
 
 function scrollProjectTitleIntoView(id: string) {
   // skip scroll into view for first h2 element
@@ -40,7 +40,7 @@ type T_ContentProps = {
 
 const Content = ({ children, title, titleClasses }: T_ContentProps) => {
   let backgroundClasses =
-    "text-transparent bg-gradient-to-r from-red-700 to-red-600 bg-clip-text ";
+    "text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text ";
   const headingClasses = (backgroundClasses += titleClasses
     ? titleClasses
     : "text-3xl mt-8");
@@ -84,7 +84,7 @@ export const ProjectsTab = () => {
             <div className="flex flex-row items-center justify-between mb-12">
               <h2
                 id={item.title?.projectName.replace(" ", "-").toLowerCase()}
-                className="text-4xl lg:text-6xl text-transparent py-3 bg-gradient-to-r from-indigo-600 to-indigo-950 bg-clip-text animation-fade-in cursor-pointer"
+                className="text-4xl lg:text-6xl text-transparent py-3 bg-gradient-to-r from-orange-500 to-orange-700 bg-clip-text animation-fade-in cursor-pointer"
                 onClick={handleProjectTitleClick}
               >
                 {item.title?.projectName}

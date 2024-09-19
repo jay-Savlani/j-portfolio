@@ -9,6 +9,17 @@
   }
 }
 
+@keyframes move-in-right {
+  0% {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -39,8 +50,27 @@
   }
 }
 
+@keyframes rotate-slight {
+  0% {
+    transform: rotate(-12deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.animation-rotate-slight {
+  animation: rotate-slight 0.5s ease-in;
+}
+
 .animation-move-in-left {
   animation: move-in-left 0.5s ease-in;
+}
+
+.animation-move-in-right {
+  animation: move-in-right 0.5s ease-in;
 }
 
 .animation-fade-in {

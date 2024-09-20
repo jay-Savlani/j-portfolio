@@ -26,11 +26,12 @@ export const HomeTab = () => {
               Passionate and detail-oriented Front-End Developer with 2+ years
               of experience in building user friendly customer facing and
               internal business applications. Proficient in HTML, CSS,
-              Typescript, Javascript, React. Experienced in detailing the code
-              with React optimizations, Typescript, JSDoc and writing unit tests
-              for code maintainability. Being Linux enthusiast, I am always
-              eager to reduce daily redundant tasks with bash scripting with a
-              touch of python and increase productivity.
+              Typescript, Javascript, React, Next.js, Node.js and many more.
+              Experienced in detailing the code with React optimizations,
+              Typescript, JSDoc and writing unit tests for code maintainability.
+              Being Linux enthusiast, I am always eager to reduce daily
+              redundant tasks with bash scripting with a touch of python and
+              increase productivity.
             </p>
           </div>
         </div>

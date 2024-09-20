@@ -19,7 +19,7 @@ const Grid = () => {
           height="20"
           patternUnits="userSpaceOnUse"
         >
-          <circle cx="5" cy="5" r="0.2" fill="white" />
+          <circle cx="5" cy="5" r="0.5px" fill="white" />
         </pattern>
       </defs>
       <rect width="100%" height="100%" fill="url(#dots)" />

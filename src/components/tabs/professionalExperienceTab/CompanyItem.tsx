@@ -10,8 +10,12 @@ export const CompanyItem = ({ item }: T_CompanyItemProps) => {
     <div className="animation-fade-in">
       <div className="p-4 lg:p-8 flex flex-col lg:grid lg:grid-cols-5 lg:grid-row-2 lg:grid-flow-row gap-10 ">
         <div className="col-span-5">
-          <div className="flex flex-col text-center  gap-3">
-            <p className="text-[30px]">{item.title}</p>
+          <div className="flex flex-col text-center items-center  gap-3">
+            <div className="flex gap-4 items-center">
+              <i className="fa-solid fa-building text-white text-[30px]" />
+              <p className="text-[30px]">{item.title}</p>
+            </div>
+
             <p className=" text-3xl lg:text-[40px] tracking-widest font-bold bg-gradient-to-r from-orange-500 to-orange-800 text-transparent bg-clip-text p-2">
               {item.designation}
             </p>

@@ -90,7 +90,7 @@ const NavResponsive = () => {
 
         <div className="mt-3">
           <PlainLink
-            classes="text-white text-xl font-semibold tracking-wider my-3 block"
+            classes="text-white text-xl font-semibold tracking-wider my-3 block hover:opacity-70"
             href="https://github.com/jay-Savlani/"
             target="_blank"
           >
@@ -98,7 +98,7 @@ const NavResponsive = () => {
           </PlainLink>
 
           <PlainLink
-            classes="text-white text-xl font-semibold tracking-wider block"
+            classes="text-white text-xl font-semibold tracking-wider block hover:opacity-70"
             href="https://www.linkedin.com/in/jay-savlani/"
             target="_blank"
           >
@@ -185,7 +185,7 @@ const Navigation = () => {
               href="https://github.com/jay-Savlani/"
               target="_blank"
             >
-              Github
+              GitHub
             </PlainLink>
           </Button>
           <Button classes="py-2.5 px-2.5 rounded border border-orange-400 hover:bg-slate-700  hover:text-white transition-all duration-300">

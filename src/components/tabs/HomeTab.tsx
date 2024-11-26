@@ -23,7 +23,7 @@ export const HomeTab = () => {
               SOFTWARE DEVELOPER
             </h2>
             <p className="text-base text-slate-200 tracking-wider animation-fade-in">
-              Passionate and detail-oriented Front-End Developer with 2+ years
+              Passionate and detail-oriented Software Engineer with 4.5+ years
               of experience in building user friendly customer facing and
               internal business applications. Proficient in HTML, CSS,
               Typescript, Javascript, React, Next.js, Node.js and many more.

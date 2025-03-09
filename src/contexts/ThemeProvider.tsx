@@ -1,7 +1,8 @@
 import { createContext, ReactNode, useContext, useState } from "react";
 
-interface IThemeProviderValue {
+export interface IThemeProviderValue {
   themeState: "dark" | "light";
+  toggleTheme: () => void;
 }
 
 type T_ThemeProviderProps = {
@@ -10,6 +11,7 @@ type T_ThemeProviderProps = {
 
 const ThemeContext = createContext<IThemeProviderValue>({
   themeState: "dark",
+  toggleTheme: () => {},
 });
 
 export const ThemeProvider = ({ children }: T_ThemeProviderProps) => {
@@ -29,8 +31,10 @@ export const ThemeProvider = ({ children }: T_ThemeProviderProps) => {
     attributeFilter: ["class"],
   });
 
+  const toggleTheme = () => document.documentElement.classList.toggle("dark");
+
   return (
-    <ThemeContext.Provider value={{ themeState }}>
+    <ThemeContext.Provider value={{ themeState, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

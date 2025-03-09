@@ -8,6 +8,7 @@ import { PlainLink } from "./utilityComponents/PlainLink";
 import { HorizontalDivider } from "./utilityComponents/HorizontalDivider";
 import { routeConstants } from "./constants";
 import "./common.css";
+import { useTheme, IThemeProviderValue } from "../contexts/ThemeProvider";
 
 type ROUTE_NAME =
   | "home"
@@ -54,7 +55,11 @@ const BurgerMenuCloseIcon = () => {
   );
 };
 
-const NavResponsive = () => {
+type T_NavResponsiveProps = {
+  toggleTheme: IThemeProviderValue["toggleTheme"];
+};
+
+const NavResponsive = ({ toggleTheme }: T_NavResponsiveProps) => {
   const [burgerMenuOpen, setIsBurgerMenuOpen] = useState(false);
 
   const handleToggle = () => {
@@ -118,16 +123,23 @@ const NavResponsive = () => {
           />
         </NavLink>
 
-        {!burgerMenuOpen && (
-          <button className="block h-8 w-8" onClick={handleToggle}>
-            <BurgerMenuIcon />
-          </button>
-        )}
-        {burgerMenuOpen && (
-          <button className="block h-8 w-8" onClick={handleToggle}>
-            <BurgerMenuCloseIcon />
-          </button>
-        )}
+        <div className="flex items-center gap-2">
+          <i
+            className="fa-solid fa-circle-half-stroke text-xl hover:opacity-25 cursor-pointer me-3"
+            onClick={toggleTheme}
+          />
+
+          {!burgerMenuOpen && (
+            <button className="block h-8 w-8" onClick={handleToggle}>
+              <BurgerMenuIcon />
+            </button>
+          )}
+          {burgerMenuOpen && (
+            <button className="block h-8 w-8" onClick={handleToggle}>
+              <BurgerMenuCloseIcon />
+            </button>
+          )}
+        </div>
       </div>
     </nav>
   );
@@ -135,13 +147,10 @@ const NavResponsive = () => {
 
 const Navigation = () => {
   const { windowSize, tailwindBreakpoints } = useMediaQueryContext();
-
-  const toggleDarkMode = () => {
-    document.documentElement.classList.toggle("dark");
-  };
+  const { toggleTheme } = useTheme();
 
   if (windowSize <= tailwindBreakpoints["md"]) {
-    return <NavResponsive />;
+    return <NavResponsive toggleTheme={toggleTheme} />;
   }
 
   return (
@@ -189,7 +198,7 @@ const Navigation = () => {
         <div className="flex flex-row items-center gap-5 tracking-wider text-white">
           <i
             className="fa-solid fa-circle-half-stroke text-lg md:text-2xl hover:opacity-25 cursor-pointer"
-            onClick={toggleDarkMode}
+            onClick={toggleTheme}
           />
 
           <Button classes="bg-orange-600 text-slate-100 py-2.5 px-2.5 rounded hover:opacity-75  transition-all duration-300">

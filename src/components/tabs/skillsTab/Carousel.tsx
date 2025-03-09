@@ -40,9 +40,10 @@ const ImageWithTitle = ({
     if (onSelect) onSelect(title);
   };
 
-  let titleClasses = "text-base md:text-lg text-center text-white mt-5 p-2 ";
+  let titleClasses =
+    "text-base md:text-lg text-center text-white dark:text-slate-600 mt-5 p-2 ";
   if (selectedItem === image.title)
-    titleClasses += "bg-orange-700 text-white shadow-inner";
+    titleClasses += "bg-orange-700 text-white dark:text-white shadow-inner";
 
   return (
     <div className="animation-fade-in-quick text-center">

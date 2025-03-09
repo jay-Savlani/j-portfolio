@@ -32,12 +32,15 @@ const routeMap: Record<ROUTE_NAME, string> = {
   achievements: routeConstants.ACHIEVEMENTS,
 };
 
+// TODO
+// check user preference of light or dark mode from local storage
+
 const BurgerMenuIcon = () => {
   return (
     <div className="h-full flex flex-col gap-1.5 items-center justify-center">
-      <span className="block h-0.5 w-full bg-orange-500"></span>
-      <span className="block h-0.5 w-full bg-orange-500"></span>
-      <span className="block h-0.5 w-full bg-orange-500"></span>
+      <span className="block h-0.5 w-full bg-orange-500 dark:bg-orange-300"></span>
+      <span className="block h-0.5 w-full bg-orange-500 dark:bg-orange-300"></span>
+      <span className="block h-0.5 w-full bg-orange-500 dark:bg-orange-300"></span>
     </div>
   );
 };
@@ -63,7 +66,7 @@ const NavResponsive = () => {
   } top-0 left-0 w-[100vw] h-[100vh] p-6 bg-gradient-to-r from-orange-600 to-orange-500 transition-all duration-200`;
 
   return (
-    <nav className="fixed top-0 left-0 px-6 py-2 w-full z-50 bg-slate-900">
+    <nav className="fixed top-0 left-0 px-6 py-2 w-full z-50 bg-slate-900 dark:bg-slate-500">
       <div className={overlayClasses}>
         <List
           items={listItems}
@@ -133,12 +136,16 @@ const NavResponsive = () => {
 const Navigation = () => {
   const { windowSize, tailwindBreakpoints } = useMediaQueryContext();
 
+  const toggleDarkMode = () => {
+    document.documentElement.classList.toggle("dark");
+  };
+
   if (windowSize <= tailwindBreakpoints["md"]) {
     return <NavResponsive />;
   }
 
   return (
-    <nav className="fixed top-0 left-0 py-6 px-12 w-full  z-50 text-white bg-slate-900">
+    <nav className="fixed top-0 left-0 py-6 px-12 w-full  z-50 text-white bg-slate-900 dark:bg-slate-500">
       <div className="flex flex-row items-center justify-between">
         <div className="flex flex-row items-center">
           <List
@@ -167,7 +174,8 @@ const Navigation = () => {
                     to={routeMap[item]}
                     className={({ isActive }) =>
                       isActive
-                        ? "border-b border-orange-600 " + classes
+                        ? "border-b border-orange-600 dark:border-orange-400 " +
+                          classes
                         : classes
                     }
                   >
@@ -178,7 +186,12 @@ const Navigation = () => {
             }}
           />
         </div>
-        <div className="flex flex-row gap-5 tracking-wider text-white">
+        <div className="flex flex-row items-center gap-5 tracking-wider text-white">
+          <i
+            className="fa-solid fa-circle-half-stroke text-lg md:text-2xl hover:opacity-25 cursor-pointer"
+            onClick={toggleDarkMode}
+          />
+
           <Button classes="bg-orange-600 text-slate-100 py-2.5 px-2.5 rounded hover:opacity-75  transition-all duration-300">
             <PlainLink
               classes="text-inherit"

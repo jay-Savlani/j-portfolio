@@ -12,7 +12,7 @@ export const AchievementsTab = () => {
             <div className="p-4 flex flex-col lg:flex-row gap-10 lg:gap-14 items-center">
               <img className="h-60 w-60" src={item.imgSrc} />
 
-              <h2 className="text-[24px] text-[18px] text-center lg:text-left text-wrap">
+              <h2 className="text-[24px] text-center lg:text-left text-wrap dark:text-slate-600">
                 {item.achievement}
               </h2>
 

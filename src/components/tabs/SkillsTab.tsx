@@ -19,16 +19,16 @@ export const SkillsTab = () => {
         />
       </div>
       <div className="flex flex-col lg:flex-row lg:justify-strech gap-5 p-3">
-        <div className="basis-1/2 lg:shadow-lg lg:max-h-[350px] p-3">
+        <div className="basis-1/2 lg:shadow-lg lg:max-h-[350px] p-3 dark:bg-slate-200">
           <List
             classes="h-full lg:p-0 grid grid-rows-1 grid-cols-2 sm:grid-cols-4 lg:flex lg:flex-col lg:flex-wrap gap-3 lg:gap-0"
             items={skillData}
             ListItem={({ item }) => {
               let titleClasses =
-                "text-base p-2 hover:bg-orange-700 hover:text-white cursor-pointer ";
+                "text-base p-2 dark:text-slate-600 hover:bg-orange-700 hover:text-white dark:hover:text-white cursor-pointer ";
 
               if (item.title === activeSkill) {
-                titleClasses += "bg-orange-700 text-white shadow-inner";
+                titleClasses += "bg-orange-700 dark:text-white shadow-inner";
               }
 
               return (
@@ -46,7 +46,7 @@ export const SkillsTab = () => {
           />
         </div>
 
-        <div className="basis-1/2 lg:shadow-lg rounded">
+        <div className="basis-1/2 lg:shadow-lg rounded dark:bg-slate-200">
           <SkillDetail
             skillData={skillData.find((skill) => skill.title === activeSkill)}
             key={activeSkill}

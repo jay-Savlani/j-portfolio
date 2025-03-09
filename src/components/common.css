@@ -85,6 +85,6 @@
   animation-delay: 0.2s;
 }
 
-.animation-spin-slow {
+.animation-pulse-slow {
   animation: pulse 1.2s linear infinite;
 }

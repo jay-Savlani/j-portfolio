@@ -12,15 +12,17 @@ export const CompanyItem = ({ item }: T_CompanyItemProps) => {
         <div className="col-span-5">
           <div className="flex flex-col text-center items-center  gap-3">
             <div className="flex gap-4 items-center">
-              <i className="fa-solid fa-building text-white text-[30px]" />
-              <p className="text-[30px]">{item.title}</p>
+              <i className="fa-solid fa-building text-white dark:text-slate-600 text-[30px]" />
+              <p className="text-[30px] dark:text-slate-600">{item.title}</p>
             </div>
 
-            <p className=" text-3xl lg:text-[40px] tracking-widest font-bold bg-gradient-to-r from-orange-500 to-orange-800 text-transparent bg-clip-text p-2">
+            <p className=" text-3xl lg:text-[40px] dark:text-slate-600 tracking-widest font-bold bg-gradient-to-r from-orange-500 to-orange-800 text-transparent bg-clip-text p-2">
               {item.designation}
             </p>
-            <p className="text-base">{item.address}</p>
-            <p className="text-base">{item.workDurationRange}</p>
+            <p className="text-base dark:text-slate-600">{item.address}</p>
+            <p className="text-base dark:text-slate-600">
+              {item.workDurationRange}
+            </p>
           </div>
         </div>
 
@@ -29,7 +31,7 @@ export const CompanyItem = ({ item }: T_CompanyItemProps) => {
             {item.skills.map((skill) => (
               <li
                 key={skill}
-                className=" rounded px-2 py-1 text-wrap tracking-wider"
+                className="rounded px-2 py-1 text-wrap tracking-wider dark:text-slate-600"
               >
                 {skill}
               </li>
@@ -40,7 +42,7 @@ export const CompanyItem = ({ item }: T_CompanyItemProps) => {
         <div className="col-span-3 p-6 pt-0 rounded-lg">
           <ul className="flex flex-col gap-4 justify-self-end">
             {item.points.map((point, index) => (
-              <div className="flex flex-row gap-6 items-center hover:tracking-wider hover:-translate-y-1.5 transition-all hover:font-semibold">
+              <div className="flex flex-row gap-6 items-center hover:tracking-wider hover:-translate-y-1.5 transition-all hover:font-semibold dark:text-slate-600">
                 <span className="font-bold text-lg text-green-500">
                   &#10003;
                 </span>

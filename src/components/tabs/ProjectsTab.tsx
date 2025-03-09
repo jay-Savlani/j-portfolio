@@ -6,7 +6,9 @@ import { projectsData } from "./projectsTab/projectsData";
 import { List } from "../utilityComponents/List";
 import { ProjectImageCarousel } from "./projectsTab/ProjectImageCarousel";
 import { PlainLink } from "../utilityComponents/PlainLink";
-import GITHUB_LOGO from "../../assets/github-mark-white.png";
+import GITHUB_LOGO_WHITE from "../../assets/github-mark-white.png";
+import GITHUB_LOGO_BLACK from "../../assets/github-mark.png";
+import { useTheme } from "../../contexts/ThemeProvider";
 
 function scrollProjectTitleIntoView(id: string) {
   // skip scroll into view for first h2 element
@@ -40,7 +42,7 @@ type T_ContentProps = {
 
 const Content = ({ children, title, titleClasses }: T_ContentProps) => {
   let backgroundClasses =
-    "text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text ";
+    "text-transparent bg-gradient-to-r from-yellow-300 to-yellow-500 dark:text-yellow-500 dark:text-yellow-700 bg-clip-text ";
   const headingClasses = (backgroundClasses += titleClasses
     ? titleClasses
     : "text-3xl mt-8");
@@ -55,6 +57,8 @@ const Content = ({ children, title, titleClasses }: T_ContentProps) => {
 
 export const ProjectsTab = () => {
   const { hash } = useLocation();
+
+  const { themeState } = useTheme();
 
   useEffect(() => {
     if (hash) {
@@ -93,7 +97,11 @@ export const ProjectsTab = () => {
               <div className="shrink-0">
                 <PlainLink href={item.githubLink} target="_blank">
                   <img
-                    src={GITHUB_LOGO}
+                    src={
+                      themeState === "dark"
+                        ? GITHUB_LOGO_WHITE
+                        : GITHUB_LOGO_BLACK
+                    }
                     className="w-10 h-10 hover:opacity-70"
                   />
                 </PlainLink>
@@ -115,7 +123,7 @@ export const ProjectsTab = () => {
               </div>
             )}
 
-            <p className="mt-3">{item.summary}</p>
+            <p className="mt-3 dark:text-slate-600">{item.summary}</p>
             <div className="flex flex-row justify-center mt-8 mb-14">
               <ProjectImageCarousel data={item.images || []} />
             </div>
@@ -126,8 +134,10 @@ export const ProjectsTab = () => {
                   ListItem={({ item }) => {
                     return (
                       <li key={item} className="flex flex-row gap-3 my-1">
-                        <span className="font-semibold">&gt;</span>
-                        <p>{item}</p>
+                        <span className="font-semibold dark:text-slate-800">
+                          &gt;
+                        </span>
+                        <p className="dark:text-slate-600">{item}</p>
                       </li>
                     );
                   }}
@@ -142,13 +152,15 @@ export const ProjectsTab = () => {
                     return (
                       <li key={item.solution} className="my-2">
                         <div className="flex flex-row gap-3">
-                          <span>&gt;</span>
+                          <span className="dark:text-slate-800">&gt;</span>
 
-                          <h4 className="text-lg font-semibold tracking-wide bg-gradient-to-r from-violet-500 to-fuchsia-500 text-transparent bg-clip-text">
+                          <h4 className="text-lg dark:text-slate-600 font-semibold tracking-wide bg-gradient-to-r from-violet-500 to-fuchsia-500 text-transparent bg-clip-text">
                             {item.solution}
                           </h4>
                         </div>
-                        <p className="mt-1.5">{item.description}</p>
+                        <p className="mt-1.5 dark:text-slate-600">
+                          {item.description}
+                        </p>
                       </li>
                     );
                   }}
@@ -163,7 +175,9 @@ export const ProjectsTab = () => {
                   ListItem={({ item }) => (
                     <li key={item.techStack} className="flex flex-row gap-8">
                       <img src={item.imgSrc} className="h-10 w-10" />
-                      <span className="text-lg">{item.techStack}</span>
+                      <span className="text-lg dark:text-slate-600">
+                        {item.techStack}
+                      </span>
                     </li>
                   )}
                 />

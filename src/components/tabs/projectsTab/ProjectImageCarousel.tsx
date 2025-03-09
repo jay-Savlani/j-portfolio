@@ -63,7 +63,7 @@ export const ProjectImageCarousel = ({ data }: T_CarouselProps) => {
 
   return (
     <div>
-      <p className="text-base mb-2 lg:text-lg text-center mt-5 p-1 lg:p-2 font-semibold">
+      <p className="text-base dark:text-slate-600 mb-2 lg:text-lg text-center mt-5 p-1 lg:p-2 font-semibold">
         {data[index].title}
       </p>
 

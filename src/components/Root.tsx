@@ -48,7 +48,7 @@ const ContactItem = ({ iconClass, contactName, Contact }: ContactItemProps) => {
 
 const Footer = () => {
   return (
-    <footer className="pt-2 pb-8 px-6 md:px-0">
+    <footer className="pt-2 pb-8 px-6 md:px-0 dark:text-slate-700">
       <h3 className="border-b-2 border-b-orange-600 inline-block py-1 mb-4">
         Contact Info
       </h3>
@@ -98,7 +98,7 @@ export default function Root() {
   }, [location]);
 
   return (
-    <div className="bg-slate-950 min-h-[100vh] relative text-white selection:bg-orange-600">
+    <div className="bg-slate-950 dark:bg-slate-100 min-h-[100vh] relative text-white selection:bg-orange-600 dark:selection:bg-orange-400">
       <Grid />
       <Navigation />
       <div className=" sm:px-6 md:px-8 lg:px-12 h-full pt-24 md:pt-28">
